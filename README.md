@@ -1,3 +1,7 @@
+![dashboard screenshot](./images/nvim.png)
+![powershell screenshot](./images/pwsh.png)
+![code screenshot](./images/code.png)
+
 # My Dotfiles
 
 ## Contents
