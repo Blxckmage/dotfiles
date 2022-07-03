@@ -46,6 +46,5 @@ Requires Neovim (>= 0.5)
 
 ## About me
 
-- [Twitter @inkdrop_app](https://twitter.com/inkdrop_app)
-- [Blog](https://blog.inkdrop.app/)
-- [My product: Inkdrop - Markdown note-taking app](https://www.inkdrop.app/)
+- [Instagram](https://www.instagram.com/fxzaaa/)
+- Discord : faz#8303
