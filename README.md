@@ -23,16 +23,16 @@ Requires Neovim (>= 0.5)
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) - Indentline plugin.
 - [alpha.nvim](https://github.com/goolord/alpha-nvim) - Dashboard plugin for NeoVim.
 - [base64](https://github.com/NvChad/base46) - Manages syntax colorscheme in NvChad.
-- [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua) - Fastest NeoVim colorizer, colors hex colors, hsl codes and much more!
+- [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua) - Fastest NeoVim colorizer, colors hex colors, hsl codes, etc.
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - Lua fork of vim devicons which lets you change colors and edit icons of filetypes.
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - NeoVim Treesitter configurations and abstraction layer
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - NeoVim Treesitter configurations and abstraction layer.
 
-### Language Server Plugins
+#### Language Server Plugins
 
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - Used for configuring lsp servers etc.
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - Completion menu.
 
-### Misc Plugins
+#### Misc Plugins
 
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
