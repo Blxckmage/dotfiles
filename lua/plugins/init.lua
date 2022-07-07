@@ -174,6 +174,9 @@ local plugins = {
       end,
    },
 
+   --discord presence
+   ["andweeb/presence.nvim"] = {},
+
    -- Only load whichkey after all the gui
    ["folke/which-key.nvim"] = {
       module = "which-key",
