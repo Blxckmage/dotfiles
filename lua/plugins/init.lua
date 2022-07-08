@@ -92,6 +92,14 @@ local plugins = {
       end,
    },
 
+   -- Formatter
+   ["jose-elias-alvarez/null-ls.nvim"] = {
+      after = "nvim-lspconfig",
+      config = function ()
+        require "custom.plugins.null-ls"
+      end,
+   },
+
    -- load luasnips + cmp related in insert mode only
 
    ["rafamadriz/friendly-snippets"] = {
