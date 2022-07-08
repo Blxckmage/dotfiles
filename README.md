@@ -26,6 +26,7 @@ Requires Neovim (>= 0.5)
 - [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua) - Fastest NeoVim colorizer, colors hex colors, hsl codes, etc.
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - Lua fork of vim devicons which lets you change colors and edit icons of filetypes.
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - NeoVim Treesitter configurations and abstraction layer.
+- [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) - Used for code formatting.
 
 #### Language Server Plugins
 
