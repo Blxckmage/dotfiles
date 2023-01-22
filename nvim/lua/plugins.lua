@@ -72,10 +72,11 @@ lazy.setup({
 	"norcalli/nvim-colorizer.lua",
 
 	-- Other
+	{ "iamcco/markdown-preview.nvim", ft = "markdown" },
 	"numToStr/Comment.nvim",
 	"andweeb/presence.nvim",
 	{ "phaazon/hop.nvim", event = "BufReadPost", branch = "v2" },
-	{ "prichrd/netrw.nvim", cmd = "Explore" },
+	"prichrd/netrw.nvim",
 	{
 		"simrat39/rust-tools.nvim",
 		ft = "rust",
