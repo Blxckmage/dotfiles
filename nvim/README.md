@@ -1,5 +1,7 @@
 # Blxckmage's dotfiles
 
+> If I had 8h to write a program, I would spend 6h tweaking my neovim config. -Abraham Lincoln
+
 ## Neovim setup
 
 > Requires [Neovim](https://neovim.io/) (>= 0.7)
@@ -54,13 +56,14 @@
 
 - [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) - Gruvbox Theme
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - Lua fork of vim devicons which lets you change colors and edit icons of filetypes.
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - A blazing fast and easy to configure Neovim statusline written in Lua
+- [tamton-aquib/staline.nvim](https://github.com/tamton-aquib/staline.nvim) - A modern lightweight statusline and bufferline plugin for neovim in lua.
 - [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) - A snazzy bufferline
 - [norcalli/nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) - Neovim colorizer, colors hex colors, hsl codes and more.
 - [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol Client for Neovim
 
 #### Others
 
+- [iamcco/markdown-preview.nvim](https://https://github.com/iamcco/markdown-preview.nvim) - Markdown preview on browser with synchronized scrolling
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim.
 - [andweeb/presence.nvim](https://github.com/andweeb/presence.nvim) - Neovim Discord Rich Presence.
 - [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim) - Neovim fast motion plugin
