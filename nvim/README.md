@@ -62,7 +62,7 @@
 
 #### Others
 
-- [alexghergh/nvim-tmux-navigation](https://github.com/alexghergh/nvim-tmux-navigation) - Easy Neovim-Tmux navigation plugin.
+- [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigation) - Seamless navigation between tmux and nvim.
 - [iamcco/markdown-preview.nvim](https://https://github.com/iamcco/markdown-preview.nvim) - Markdown preview on browser with synchronized scrolling
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim.
 - [andweeb/presence.nvim](https://github.com/andweeb/presence.nvim) - Neovim Discord Rich Presence.

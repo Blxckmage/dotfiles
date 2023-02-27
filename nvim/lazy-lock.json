@@ -24,7 +24,6 @@
   "nvim-colorizer.lua": { "branch": "master", "commit": "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6" },
   "nvim-dap": { "branch": "master", "commit": "c64a6627bb01eb151da96b28091797beaac09536" },
   "nvim-lspconfig": { "branch": "master", "commit": "d228bcf7cd94611929482a09e114a42c41fe81a8" },
-  "nvim-tmux-navigation": { "branch": "main", "commit": "84a72a1f7655a2b2ced53abc7aea21f05019642a" },
   "nvim-treesitter": { "branch": "master", "commit": "622baacdc1b22cdfd73bc98c07bb5654a090bcac" },
   "nvim-ts-autotag": { "branch": "main", "commit": "fdefe46c6807441460f11f11a167a2baf8e4534b" },
   "nvim-web-devicons": { "branch": "master", "commit": "6c38926351372ea87034dec26182b62c835ff3bc" },
@@ -33,5 +32,6 @@
   "rust-tools.nvim": { "branch": "master", "commit": "df584e84393ef255f5b8cbd709677d6a3a5bf42f" },
   "staline.nvim": { "branch": "main", "commit": "b23465ca5f1d91617b36a78fd736cf193ab4804c" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "304508fb7bea78e3c0eeddd88c4837501e403ae8" },
-  "telescope.nvim": { "branch": "master", "commit": "2f32775405f6706348b71d0bb8a15a22852a61e4" }
+  "telescope.nvim": { "branch": "master", "commit": "2f32775405f6706348b71d0bb8a15a22852a61e4" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "cdd66d6a37d991bba7997d593586fc51a5b37aa8" }
 }
