@@ -59,16 +59,17 @@
 - [tamton-aquib/staline.nvim](https://github.com/tamton-aquib/staline.nvim) - A modern lightweight statusline and bufferline plugin for neovim in lua.
 - [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) - A snazzy bufferline
 - [norcalli/nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) - Neovim colorizer, colors hex colors, hsl codes and more.
-- [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol Client for Neovim
 
 #### Others
 
+- [alexghergh/nvim-tmux-navigation](https://github.com/alexghergh/nvim-tmux-navigation) - Easy Neovim-Tmux navigation plugin.
 - [iamcco/markdown-preview.nvim](https://https://github.com/iamcco/markdown-preview.nvim) - Markdown preview on browser with synchronized scrolling
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim.
 - [andweeb/presence.nvim](https://github.com/andweeb/presence.nvim) - Neovim Discord Rich Presence.
 - [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim) - Neovim fast motion plugin
 - [prichrd/netrw.nvim](https://github.com/prichrd/netrw.nvim) - Neovim file explorer replacement
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim) - Rust tools for better rust development in Neovim.
+- [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol Client for Neovim
 
 ## PowerShell setup
 
