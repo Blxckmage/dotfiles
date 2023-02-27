@@ -68,7 +68,7 @@
 - [andweeb/presence.nvim](https://github.com/andweeb/presence.nvim) - Neovim Discord Rich Presence.
 - [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim) - Neovim fast motion plugin
 - [prichrd/netrw.nvim](https://github.com/prichrd/netrw.nvim) - Neovim file explorer replacement
-- [simrat39/rust-tools.nvim] - Rust tools for better rust development in Neovim.
+- [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim) - Rust tools for better rust development in Neovim.
 
 ## PowerShell setup
 
