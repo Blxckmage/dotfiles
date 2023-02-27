@@ -72,7 +72,7 @@ lazy.setup({
 	"norcalli/nvim-colorizer.lua",
 
 	-- Other
-	"alexghergh/nvim-tmux-navigation",
+	"christoomey/vim-tmux-navigator",
 	{ "iamcco/markdown-preview.nvim", ft = "markdown" },
 	"numToStr/Comment.nvim",
 	"andweeb/presence.nvim",
