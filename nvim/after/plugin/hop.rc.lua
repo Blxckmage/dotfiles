@@ -18,7 +18,7 @@ vim.keymap.set("", "<Leader>l", function()
 	hop.hint_lines()
 end, { remap = true })
 
-vim.keymap.set("", "<Leader>c", function()
+vim.keymap.set("", "<Leader>r", function()
 	hop.hint_char2()
 end, { remap = true })
 
