@@ -65,7 +65,7 @@ lazy.setup({
 	"jayp0521/mason-null-ls.nvim",
 
 	-- UI
-	{ "ellisonleao/gruvbox.nvim", lazy = false, priority = 1000 },
+	{ "catppuccin/nvim", name = "catppuccin", lazy = false, priority = 1000 },
 	{ "kyazdani42/nvim-web-devicons", lazy = false },
 	{ "tamton-aquib/staline.nvim", dependencies = "nvim-lspconfig" },
 	"akinsho/nvim-bufferline.lua",

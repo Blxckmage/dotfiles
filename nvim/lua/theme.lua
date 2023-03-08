@@ -1,11 +1,16 @@
-local status, gruvbox = pcall(require, "gruvbox")
+local status, catppuccin = pcall(require, "catppuccin")
 if not status then
-  return
+	return
 end
 
-gruvbox.setup({
-  transparent_mode = true,
-  contrast = "soft",
+catppuccin.setup({
+	flavour = "mocha",
+	transparent_background = true,
+	show_end_of_buffer = true,
+	term_colors = true,
+
+	no_italic = true,
+	no_bold = true,
 })
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme catppuccin")
