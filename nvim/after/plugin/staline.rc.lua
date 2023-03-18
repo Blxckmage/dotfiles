@@ -10,10 +10,10 @@ staline.setup({
 		right = { "lsp", "  ", "line_column" },
 	},
 	mode_colors = {
-		i = "#d4be98",
-		n = "#84a598",
-		c = "#8fbf7f",
-		v = "#fc802d",
+		i = "#ffb86c",
+		n = "#a3be8c",
+		c = "#88c0d0",
+		v = "#d08770",
 	},
 	defaults = {
 		true_colors = true,
