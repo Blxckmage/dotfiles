@@ -54,7 +54,7 @@
 
 #### UI Plugins
 
-- [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) - Gruvbox Theme
+- [catppuccin/nvim](https://github.com/catppuccin/nvim) - Catppuccin Theme
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - Lua fork of vim devicons which lets you change colors and edit icons of filetypes.
 - [tamton-aquib/staline.nvim](https://github.com/tamton-aquib/staline.nvim) - A modern lightweight statusline and bufferline plugin for neovim in lua.
 - [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) - A snazzy bufferline
