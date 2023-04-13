@@ -30,10 +30,16 @@ lazy.setup({
 	-- LSP Setup
 	{
 		"VonHeikemen/lsp-zero.nvim",
+		branch = "v2.x",
 		dependencies = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig", event = "BufReadPre" },
-			"williamboman/mason.nvim",
+			{ -- Optional
+				"williamboman/mason.nvim",
+				build = function()
+					pcall(vim.cmd, "MasonUpdate")
+				end,
+			},
 			"williamboman/mason-lspconfig.nvim",
 
 			-- Autocompletion
@@ -54,7 +60,7 @@ lazy.setup({
 			"rafamadriz/friendly-snippets",
 		},
 	},
-	{ "glepnir/lspsaga.nvim", event = "BufRead" },
+	{ "glepnir/lspsaga.nvim", event = "LspAttach" },
 
 	-- Auto Closing
 	{ "windwp/nvim-autopairs", dependencies = "nvim-cmp" },
