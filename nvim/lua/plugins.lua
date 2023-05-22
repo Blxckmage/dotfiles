@@ -21,8 +21,14 @@ lazy.setup({
 	"nvim-lua/plenary.nvim",
 
 	-- Telescope
-	{ "nvim-telescope/telescope.nvim", module = "telescope", cmd = "Telescope" },
-	{ "nvim-telescope/telescope-file-browser.nvim", keys = "sf" },
+	{
+		"nvim-telescope/telescope.nvim",
+		module = "telescope",
+		cmd = "Telescope",
+		dependencies = {
+			"nvim-telescope/telescope-file-browser.nvim",
+		},
+	},
 
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = "TSUpdate" },
@@ -71,11 +77,12 @@ lazy.setup({
 	"jayp0521/mason-null-ls.nvim",
 
 	-- UI
-	{ "catppuccin/nvim", name = "catppuccin", lazy = false, priority = 1000 },
-	{ "kyazdani42/nvim-web-devicons", lazy = false },
+	{ "catppuccin/nvim", name = "catppuccin", lazy = true, priority = 1000 },
+	{ "kyazdani42/nvim-web-devicons", lazy = true },
 	{ "tamton-aquib/staline.nvim", dependencies = "nvim-lspconfig" },
 	"akinsho/nvim-bufferline.lua",
 	"norcalli/nvim-colorizer.lua",
+	{ "nvim-tree/nvim-tree.lua", cmd = "NvimTreeToggle" },
 
 	-- Other
 	"christoomey/vim-tmux-navigator",
