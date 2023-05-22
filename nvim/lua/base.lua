@@ -54,6 +54,7 @@ vim.opt.scrolloff = 8
 
 -- Command line
 vim.opt.showcmd = true
+
 -- vim.opt.shell = "powershell"
 vim.opt.inccommand = "split"
 
@@ -70,3 +71,7 @@ vim.opt.winblend = 0
 -- Completion
 vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
+
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
