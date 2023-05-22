@@ -1,5 +1,10 @@
-local setup, null_ls = pcall(require, "null-ls")
-if not setup then
+local status_null_ls, null_ls = pcall(require, "null-ls")
+if not status_null_ls then
+	return
+end
+
+local status_mason_null, mason_null_ls = pcall(require, "mason-null-ls")
+if not status_mason_null then
 	return
 end
 
@@ -13,6 +18,9 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.stylua,
 		formatting.rustfmt,
+		formatting.black.with({
+			extra_args = { "--fast" },
+		}),
 		diagnostics.eslint_d.with({
 			condition = function(utils)
 				return utils.root_has_file(".eslintrc.js")
@@ -36,4 +44,8 @@ null_ls.setup({
 			})
 		end
 	end,
+})
+
+mason_null_ls.setup({
+	automatic_setup = true,
 })
