@@ -47,6 +47,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# start chrome
+bindsym $mod+Shift+w exec google-chrome-stable
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -183,6 +186,12 @@ default_border pixel 1
 default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
 
+# set gaps
+gaps inner 5
+gaps outer 5
+smart_gaps on
+smart_borders on
+
 # catppuccin macchiato theme
 # target                 border    bg      text     indicator   child_border
 client.focused           #f5bde6   #24273a #cad3f5  #f4dbd6     #f5bde6 
@@ -195,4 +204,10 @@ client.background        #24273a
 
 # launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always feh --bg-fill ~/Pictures/wallpaper/catppuccin.png
+exec_always feh --bg-fill ~/Pictures/wallpaper/wallpaper-1.jpg
+
+# monitor
+exec_always xrandr -s 1920x1080
+
+# picom
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
