@@ -1,10 +1,10 @@
-# Blxckmage's dotfiles
+# Blxckmage's neovim config
 
 > If I had 8h to write a program, I would spend 6h tweaking my neovim config. -Abraham Lincoln
 
 ## Neovim setup
 
-> Requires [Neovim](https://neovim.io/) (>= 0.7)
+> Requires [Neovim](https://neovim.io/) (>= 0.9)
 
 #### Core Plugins
 
@@ -26,14 +26,13 @@
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - A collection of configurations for Neovim's built-in LSP.
 - [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim) - Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) - Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim.
-- [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) - A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI.
+- [nvimdev/lspsaga.nvim](https://github.com/nvimdev/lspsaga.nvim) - A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI.
 
 #### Autocompletion
 
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - A completion engine plugin for neovim written in Lua
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer) - nvim-cmp source for buffer words
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path) - nvim-cmp source for filesystem paths.
-- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) - luasnip completion source for nvim-cmp
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) - nvim-cmp source for neovim's built-in LSP
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua) - nvim-cmp source for neovim Lua API.
 
@@ -50,7 +49,7 @@
 #### Null LS
 
 - [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
-- [jayp0521/mason-null-ls.nvim](https://github.com/jay-babu/mason-null-ls.nvim) - Bridges mason.nvim with null-ls
+- [jay-babu/mason-null-ls.nvim](https://github.com/jay-babu/mason-null-ls.nvim) - Bridges mason.nvim with null-ls
 
 #### UI Plugins
 
@@ -65,25 +64,7 @@
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigation) - Seamless navigation between tmux and nvim.
 - [iamcco/markdown-preview.nvim](https://https://github.com/iamcco/markdown-preview.nvim) - Markdown preview on browser with synchronized scrolling
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim.
-- [andweeb/presence.nvim](https://github.com/andweeb/presence.nvim) - Neovim Discord Rich Presence.
 - [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim) - Neovim fast motion plugin
 - [prichrd/netrw.nvim](https://github.com/prichrd/netrw.nvim) - Neovim file explorer replacement
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim) - Rust tools for better rust development in Neovim.
 - [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol Client for Neovim
-
-## PowerShell setup
-
-- [LazyGit](https://github.com/jesseduffield/lazygit) - A simple terminal UI for git commands.
-- [Scoop](https://scoop.sh/) - A command-line installer
-- [Git for Windows](https://gitforwindows.org/)
-- [Starship](https://starship.rs) - Blazingly-fast prompt
-- [Terminal Icons](https://github.com/devblackops/Terminal-Icons) - Folder and file icons
-- [PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/) - Cmdlets for customizing the editing environment, used for autocompletion
-- [z](https://www.powershellgallery.com/packages/z) - Directory jumper
-- [PSFzf](https://github.com/kelleyma49/PSFzf) - Fuzzy finder
-
-## About me
-
-- [Instagram](https://www.instagram.com/thaumatxrge/)
-- [My Linktree](https://linktr.ee/fxzaaa)
-- Discord : faz#8303

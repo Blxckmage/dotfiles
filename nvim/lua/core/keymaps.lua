@@ -1,6 +1,6 @@
 local keymap = vim.keymap
 
--- New tab
+-- New Tab
 keymap.set("n", "te", ":tabedit<Return>", { silent = true })
 keymap.set("n", "ss", ":split<Return><C-w>w", { silent = true })
 keymap.set("n", "sv", ":vsplit<Return><C-w>w", { silent = true })
@@ -21,3 +21,6 @@ keymap.set("n", "<C-w><left>", "<C-w><")
 keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
+
+-- NvimTree
+keymap.set("n", "<Leader>-", ":NvimTreeToggle<CR>", { silent = true })
