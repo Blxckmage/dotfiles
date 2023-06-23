@@ -35,7 +35,10 @@ return {
 				enable = true,
 				disable = "",
 			},
-			autoairs = {
+			autopairs = {
+				enable = true,
+			},
+			autotag = {
 				enable = true,
 			},
 		})
