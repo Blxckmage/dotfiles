@@ -24,6 +24,14 @@ return {
 		end,
 	},
 	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			local autotag = require("nvim-ts-autotag")
+
+			autotag.setup({})
+		end,
+	},
+	{
 		"tamton-aquib/staline.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()

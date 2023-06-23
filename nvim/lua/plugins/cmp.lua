@@ -10,6 +10,14 @@ return {
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
 		{
+			"windwp/nvim-ts-autotag",
+			config = function()
+				local autotag = require("nvim-ts-autotag")
+
+				autotag.setup({})
+			end,
+		},
+		{
 			"windwp/nvim-autopairs",
 			config = function()
 				local autopairs = require("nvim-autopairs")
@@ -29,14 +37,6 @@ return {
 					return
 				end
 				cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({}))
-			end,
-		},
-		{
-			"windwp/nvim-ts-autotag",
-			config = function()
-				local autotag = require("nvim-ts-autotag")
-
-				autotag.setup({})
 			end,
 		},
 	},
