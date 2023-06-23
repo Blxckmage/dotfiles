@@ -22,7 +22,7 @@ M.setup = function()
 end
 
 M.zero_setup = function()
-	local lsp = require("lsp-zero").preset({})
+	local lsp = require("lsp-zero").preset("recommended")
 
 	lsp.ensure_installed({
 		"tsserver",
@@ -46,6 +46,7 @@ M.zero_setup = function()
 		keymap.set("n", "gc", ":Lspsaga show_cursor_diagnostics<CR>", opts)
 		keymap.set("n", "gp", ":Lspsaga peek_definition<CR>", opts)
 		keymap.set("n", "gt", ":Lspsaga term_toggle<CR>", opts)
+		keymap.set("n", "grn", ":Lspsaga rename<CR>", opts)
 		keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 		keymap.set("n", "<Leader>ca", ":Lspsaga code_action<CR>", opts)
 	end)
