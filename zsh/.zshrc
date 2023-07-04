@@ -1,12 +1,10 @@
-# Initiate starship
-eval "$(starship init zsh)"
+#!/bin/sh
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 
-# Initiate zoxide
-eval "$(zoxide init zsh)"
+# source
+plug "$HOME/.config/zsh/aliases.zsh"
+plug "$HOME/.config/zsh/exports.zsh"
 
-# Source Files
-source ~/.config/zsh/aliases.zsh
-
-# Inititate Plugins
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# plugins
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
