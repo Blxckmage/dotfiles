@@ -15,9 +15,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
 		config = function()
-			local icons = require("nvim-web-devicons")
-
-			icons.setup({
+			require("nvim-web-devicons").setup({
 				override = {},
 				default = true,
 			})
@@ -26,17 +24,14 @@ return {
 	{
 		"windwp/nvim-ts-autotag",
 		config = function()
-			local autotag = require("nvim-ts-autotag")
-
-			autotag.setup({})
+			require("nvim-ts-autotag").setup({})
 		end,
 	},
 	{
 		"tamton-aquib/staline.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			local staline = require("staline")
-			staline.setup({
+			require("staline").setup({
 				sections = {
 					left = { "  ", "mode", " ", "branch", " " },
 					mid = { "file_name" },
@@ -61,23 +56,14 @@ return {
 		"numToStr/Comment.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			local comment = require("Comment")
-			comment.setup({})
+			require("Comment").setup({})
 		end,
 	},
 	{
-		"prichrd/netrw.nvim",
+		"nvim-treesitter/nvim-treesitter-context",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			local netrw = require("netrw")
-			netrw.setup({
-				icons = {
-					symlink = "",
-					directory = "",
-					file = "",
-				},
-				use_devicons = true,
-				mappings = {},
-			})
+			require("treesitter-context").setup({})
 		end,
 	},
 }
