@@ -64,7 +64,7 @@
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigation) - Seamless navigation between tmux and nvim.
 - [iamcco/markdown-preview.nvim](https://https://github.com/iamcco/markdown-preview.nvim) - Markdown preview on browser with synchronized scrolling
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim.
-- [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim) - Neovim fast motion plugin
-- [prichrd/netrw.nvim](https://github.com/prichrd/netrw.nvim) - Neovim file explorer replacement
+- [folke/flash.nvim](https://github.com/folke/flash.nvim) - Neovim fast motion plugin
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim) - Rust tools for better rust development in Neovim.
 - [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol Client for Neovim
+- [nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) - Show code context
