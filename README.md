@@ -18,8 +18,8 @@
 
 ## 📷 Showcase
 
-![picture 1](https://github.com/Blxckmage/dotfiles/blob/master/.assets/picture-1.png)
+![picture 1](https://github.com/Blxckmage/dotfiles/blob/main/.assets/picture-1.png)
 
-![picture 2](https://github.com/Blxckmage/dotfiles/blob/master/.assets/picture-2.png)
+![picture 2](https://github.com/Blxckmage/dotfiles/blob/main/.assets/picture-2.png)
 
-![picture 3](https://github.com/Blxckmage/dotfiles/blob/master/.assets/picture-3.png)
+![picture 3](https://github.com/Blxckmage/dotfiles/blob/main/.assets/picture-3.png)
