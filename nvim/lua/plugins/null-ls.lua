@@ -1,6 +1,6 @@
 return {
 	"jose-elias-alvarez/null-ls.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 	dependencies = {
 		{ "jay-babu/mason-null-ls.nvim", event = { "BufReadPre", "BufNewFile" } },
 	},
@@ -16,7 +16,6 @@ return {
 				"stylua",
 				"prettier",
 				"prettierd",
-				"rustfmt",
 			},
 			automatic_installation = true,
 			handlers = {},
@@ -33,6 +32,7 @@ return {
 						return utils.root_has_file(".eslintrc.js")
 					end,
 				}),
+				formatting.clang_format,
 			},
 			on_attach = function(current_client, bufnr)
 				if current_client.supports_method("textDocument/formatting") then

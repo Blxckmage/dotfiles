@@ -38,5 +38,24 @@ return {
 			pcall(vim.cmd, "MasonUpdate")
 		end,
 	},
-	{ "williamboman/mason-lspconfig.nvim" },
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup_handlers({
+				function(server_name)
+					local opts = {
+						on_attach = require("plugins.lsp.handlers").on_attach,
+						capabilities = require("plugins.lsp.handlers").capabilities,
+					}
+
+					local require_ok, server = pcall(require, "plugins.lsp.settings." .. server_name)
+					if require_ok then
+						opts = vim.tbl_deep_extend("force", server, opts)
+					end
+
+					require("lspconfig")[server_name].setup(opts)
+				end,
+			})
+		end,
+	},
 }
