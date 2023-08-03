@@ -1,8 +1,5 @@
 set $mod Mod4
 
-set $fm HDMI-1
-set $sm eDP-1
-
 font pango:FiraMono Nerd Font 9
 
 exec --no-startup-id dex --autostart --environment i3
@@ -24,13 +21,17 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
-# start chrome
-bindsym $mod+Shift+w exec google-chrome-stable
+# start browser
+bindsym $mod+Shift+w exec firefox
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# rofi dmenu
 bindsym $mod+d exec rofi -show drun 
+
+# rofi display menu
+bindsym $mod+p exec $HOME/.config/rofi/scripts/rofi-display-menu
 
 # change focus
 bindsym $mod+h focus left
@@ -58,7 +59,6 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+z split h
-
 # split in vertical orientation
 bindsym $mod+v split v
 
@@ -145,6 +145,16 @@ mode "resize" {
 
   bindsym $mod+r mode "resize"
 
+# Screenshots
+bindsym Print exec --no-startup-id maim "$HOME/Pictures/screenshot_$(date +'%Y-%m-%d_%H:%M:%S').png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/screenshot_$(date +'%Y-%m-%d_%H:%M:%S').png"
+bindsym Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/screenshot_$(date +'%Y-%m-%d_%H:%M:%S').png"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
 default_border pixel 1
 default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
@@ -155,6 +165,21 @@ gaps outer 5
 # smart_gaps on
 # smart_borders on
 
+# launch polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# launch feh
+exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/wallpapers/*
+
+# monitor settings
+exec --no-startup-id $HOME/.config/i3/script/display.sh
+
+# picom
+exec_always --no-startup-id picom -b --config $HOME/.config/picom/picom.conf
+
+# xinput set 23 to mouse device number(xinput --list)
+exec_always --no-startup-id for id in $(xinput list | grep "pointer" | cut -d '=' -f 2 | cut -f 1); do xinput --set-prop $id 'libinput Accel Profile Enabled' 0, 1; done
+
 # catppuccin macchiato theme
 # target                 border    bg      text     indicator   child_border
 client.focused           #f5bde6   #24273a #cad3f5  #f4dbd6     #f5bde6 
@@ -164,17 +189,3 @@ client.urgent            #f5a97f   #24273a #f5a97f  #6e738d     #f5a97f
 client.placeholder       #6e738d   #24273a #cad3f5  #6e738d     #6e738d
 
 client.background        #24273a
-
-# launch polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# launch feh
-exec_always feh --bg-fill ~/Pictures/wallpapers/wallpaper-1.jpg
-
-# monitor settings
-exec xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off
-
-# exec xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off
-
-# picom
-exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
