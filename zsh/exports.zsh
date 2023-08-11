@@ -3,9 +3,11 @@
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
-export SHELL=$(which zsh)
+export SHELL="zsh"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export STARSHIP_CACHE="$HOME/.starship/cache"
 export PATH="$HOME/.local/bin":$PATH
-export PATH="/home/blackmage/.local/share/fnm:$PATH"
+export PATH="$HOME/.local/share/fnm:$PATH"
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
