@@ -14,7 +14,9 @@
 - **Compositor**: [Picom (FT-Labs)](https://github.com/FT-Labs/picom)
 - **Editor**: [Neovim](https://neovim.io/)
 - **File Manager**: [Ranger](https://github.com/ranger/ranger)
-- **Application launcher**: [Rofi](https://github.com/davatorium/rofi)
+- **Application Launcher**: [Rofi](https://github.com/davatorium/rofi)
+- **Notification Daemon**: [Dunst](https://dunst-project.org/)
+- **Terminal Multiplexer**: [tmux](https://github.com/tmux/tmux/wiki) & [Zellij](https://zellij.dev/)
 - **Font**: [FiraMono Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 ## 📷 Showcase
