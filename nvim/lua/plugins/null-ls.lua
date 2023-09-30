@@ -15,7 +15,7 @@ return {
 			ensure_installed = {
 				"stylua",
 				"prettier",
-				"prettierd",
+				"eslint_d",
 			},
 			automatic_installation = true,
 			handlers = {},
@@ -27,12 +27,8 @@ return {
 				formatting.prettier.with({
 					extra_filetypes = { "toml", "solidity" },
 				}),
-				diagnostics.eslint_d.with({
-					condition = function(utils)
-						return utils.root_has_file(".eslintrc.js")
-					end,
-				}),
-				formatting.clang_format,
+				formatting.stylua,
+				diagnostics.eslint_d,
 			},
 			on_attach = function(current_client, bufnr)
 				if current_client.supports_method("textDocument/formatting") then

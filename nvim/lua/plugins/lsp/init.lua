@@ -34,14 +34,37 @@ return {
 			"MasonUninstallAll",
 			"MasonLog",
 		},
-		build = function()
-			pcall(vim.cmd, "MasonUpdate")
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
+		dependencies = "williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("mason-lspconfig").setup_handlers({
+			local mason = require("mason")
+			local mason_lspconfig = require("mason-lspconfig")
+			local lspconfig = require("lspconfig")
+
+			local auto_install = {
+				"lua_ls",
+				"cssls",
+				"html",
+				"tsserver",
+			}
+
+			mason.setup({
+				ui = {
+					-- Whether to automatically check for new versions when opening the :Mason window.
+					check_outdated_packages_on_open = false,
+					border = "rounded",
+					icons = {
+						package_pending = " ",
+						package_installed = " ",
+						package_uninstalled = " ",
+					},
+				},
+			})
+
+			mason_lspconfig.setup({
+				ensure_installed = auto_install,
+			})
+
+			mason_lspconfig.setup_handlers({
 				function(server_name)
 					local opts = {
 						on_attach = require("plugins.lsp.handlers").on_attach,
@@ -53,7 +76,7 @@ return {
 						opts = vim.tbl_deep_extend("force", server, opts)
 					end
 
-					require("lspconfig")[server_name].setup(opts)
+					lspconfig[server_name].setup(opts)
 				end,
 			})
 		end,
