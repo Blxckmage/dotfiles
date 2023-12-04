@@ -46,10 +46,10 @@
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) - Autopairs.
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) - Use treesitter to auto close and auto rename html tag.
 
-#### Null LS
+#### Formatter & Linter
 
-- [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
-- [jay-babu/mason-null-ls.nvim](https://github.com/jay-babu/mason-null-ls.nvim) - Bridges mason.nvim with null-ls
+- [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim) - Lightweight yet powerful formatter plugin for Neovim
+- [mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint) - Asynchronous linter plugin for Neovim
 
 #### UI Plugins
 
@@ -64,7 +64,6 @@
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigation) - Seamless navigation between tmux and nvim.
 - [iamcco/markdown-preview.nvim](https://https://github.com/iamcco/markdown-preview.nvim) - Markdown preview on browser with synchronized scrolling
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim.
-- [folke/flash.nvim](https://github.com/folke/flash.nvim) - Neovim fast motion plugin
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim) - Rust tools for better rust development in Neovim.
 - [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol Client for Neovim
 - [nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) - Show code context

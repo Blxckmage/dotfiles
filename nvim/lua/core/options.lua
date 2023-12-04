@@ -15,6 +15,7 @@ opt.ignorecase = true
 opt.title = true
 opt.cmdheight = 1
 opt.laststatus = 2
+opt.showtabline = 2
 opt.backup = false
 opt.swapfile = false
 opt.backupskip = "/tmp/*,/private/tmp*"
