@@ -78,7 +78,7 @@ return {
 		vim.keymap.set("n", "sr", function()
 			builtin.live_grep()
 		end)
-		vim.keymap.set("n", "sF", function()
+		vim.keymap.set("n", "sd", function()
 			builtin.find_files({
 				no_ignore = false,
 				hidden = true,
