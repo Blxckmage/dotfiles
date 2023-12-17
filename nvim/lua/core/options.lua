@@ -1,6 +1,8 @@
 local opt = vim.opt
 local g = vim.g
 
+g.mapleader = " "
+
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.number = true
@@ -47,7 +49,3 @@ opt.undofile = true
 opt.background = "dark"
 opt.path:append({ "**" })
 opt.wildignore:append({ "*/node_modules/*" })
-
-g.mapleader = " "
--- g.loaded_netrw = 1
--- g.loaded_netrwPlugin = 1

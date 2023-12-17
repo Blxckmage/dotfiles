@@ -4,13 +4,9 @@ return {
 		lazy = true,
 	},
 	{
-		"iamcco/markdown-preview.nvim",
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		ft = "markdown",
+		"MunifTanjim/nui.nvim",
+		lazy = true,
 	},
-
 	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
@@ -18,36 +14,6 @@ return {
 			require("nvim-web-devicons").setup({
 				override = {},
 				default = true,
-			})
-		end,
-	},
-	{
-		"windwp/nvim-ts-autotag",
-		config = function()
-			require("nvim-ts-autotag").setup({})
-		end,
-	},
-	{
-		"tamton-aquib/staline.nvim",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("staline").setup({
-				sections = {
-					left = { "  ", "mode", " ", "branch", " " },
-					mid = { "file_name" },
-					right = { "lsp", "  ", "line_column" },
-				},
-				mode_colors = {
-					i = "#ffb86c",
-					n = "#a3be8c",
-					c = "#88c0d0",
-					v = "#d08770",
-				},
-				defaults = {
-					true_colors = true,
-					line_column = " [%l/%L] :%c  ",
-					branch_symbol = " ",
-				},
 			})
 		end,
 	},
@@ -67,32 +33,53 @@ return {
 		end,
 	},
 	{
-		"stevearc/oil.nvim",
-		opts = {},
+		"iamcco/markdown-preview.nvim",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+		ft = "markdown",
+	},
+	{
+		"simrat39/rust-tools.nvim",
+		ft = "rust",
 		config = function()
-			require("oil").setup({
-				columns = {
-					"icon",
-					"size",
-				},
-				keymaps = {
-					["g?"] = "actions.show_help",
-					["<CR>"] = "actions.select",
-					["<C-s>"] = "actions.select_vsplit",
-					["<C-h>"] = "actions.select_split",
-					["<C-t>"] = "actions.select_tab",
-					["<C-p>"] = "actions.preview",
-					["<C-c>"] = "actions.close",
-					["<C-l>"] = "actions.refresh",
-					["-"] = "actions.parent",
-					["_"] = "actions.open_cwd",
-					["`"] = "actions.cd",
-					["~"] = "actions.tcd",
-					["g."] = "actions.toggle_hidden",
+			local rt = require("rust-tools")
+			local keymap = vim.keymap
+			rt.setup({
+				server = {
+					settings = {
+						["rust-analyzer"] = {
+							inlayHints = { locationLinks = false },
+						},
+					},
+					on_attach = function(_, bufnr)
+						keymap.set("n", "<leader>ha", rt.hover_actions.hover_actions, { buffer = bufnr })
+						keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
+					end,
 				},
 			})
-
-			vim.keymap.set("n", "<Leader>=", require("oil").open, { desc = "Open parent directory" })
 		end,
+	},
+	{
+		"folke/todo-comments.nvim",
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "TodoLocList", "TodoTelescope", "TodoQuickFix", "TodoTrouble" },
+		opts = {
+			signs = true,
+			sign_priority = 8,
+			keywords = {
+				FIX = {
+					icon = " ",
+					color = "error",
+					alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
+				},
+				TODO = { icon = " ", color = "info" },
+				HACK = { icon = " ", color = "warning" },
+				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+				PERF = { icon = "󰥔 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+				NOTE = { icon = "󱞁 ", color = "hint", alt = { "INFO" } },
+				TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+			},
+		},
 	},
 }

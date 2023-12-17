@@ -7,6 +7,4 @@ require("catppuccin").setup({
 		nvimtree = true,
 		telescope = true,
 	},
-	no_italic = true,
-	no_bold = true,
 })

@@ -54,15 +54,6 @@ return {
 		vim.keymap.set("n", "\\\\", function()
 			builtin.buffers()
 		end)
-		vim.keymap.set("n", ";t", function()
-			builtin.help_tags()
-		end)
-		vim.keymap.set("n", ";;", function()
-			builtin.resume()
-		end)
-		vim.keymap.set("n", ";e", function()
-			builtin.diagnostics()
-		end)
 		vim.keymap.set("n", "sf", function()
 			telescope.extensions.file_browser.file_browser({
 				path = "%:p:h",
@@ -75,7 +66,7 @@ return {
 				layout_config = { height = 20 },
 			})
 		end)
-		vim.keymap.set("n", "sr", function()
+		vim.keymap.set("n", "s/", function()
 			builtin.live_grep()
 		end)
 		vim.keymap.set("n", "sd", function()
@@ -84,8 +75,12 @@ return {
 				hidden = true,
 			})
 		end)
-		vim.keymap.set("n", "sR", function()
+		vim.keymap.set("n", "sr", function()
 			builtin.oldfiles()
+		end)
+
+		vim.keymap.set("n", "se", function()
+			builtin.diagnostics()
 		end)
 	end,
 }

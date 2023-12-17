@@ -22,5 +22,5 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
--- NvimTree
+-- Nvim-tree
 keymap.set("n", "<Leader>-", ":NvimTreeToggle<CR>", { silent = true })
