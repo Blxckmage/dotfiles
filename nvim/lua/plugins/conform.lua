@@ -22,6 +22,11 @@ return {
 				lua = { "stylua" },
 				python = { "black" },
 			},
+			formatters = {
+				black = {
+					prepend_args = { "--fast" },
+				},
+			},
 		})
 	end,
 }
