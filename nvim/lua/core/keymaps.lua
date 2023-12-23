@@ -1,9 +1,10 @@
 local keymap = vim.keymap
+local silent = { silent = true }
 
 -- New Tab
-keymap.set("n", "te", ":tabedit<Return>", { silent = true })
-keymap.set("n", "ss", ":split<Return><C-w>w", { silent = true })
-keymap.set("n", "sv", ":vsplit<Return><C-w>w", { silent = true })
+keymap.set("n", "te", ":tabedit<Return>", silent)
+keymap.set("n", "ss", ":split<Return><C-w>w", silent)
+keymap.set("n", "sv", ":vsplit<Return><C-w>w", silent)
 
 -- Move window
 keymap.set("n", "<Space>", "<C-w>w")
@@ -24,3 +25,12 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Nvim-tree
 keymap.set("n", "<Leader>-", ":NvimTreeToggle<CR>", { silent = true })
+
+-- Don't yank on delete char
+keymap.set("n", "x", '"_x', silent)
+keymap.set("n", "X", '"_X', silent)
+keymap.set("v", "x", '"_x', silent)
+keymap.set("v", "X", '"_X', silent)
+
+-- Don't yank on visual paste
+keymap.set("v", "p", '"_dP', silent)
