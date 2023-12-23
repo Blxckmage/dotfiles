@@ -56,7 +56,6 @@ M.mason_setup = function()
 		"cssls",
 		"html",
 		"tsserver",
-		"eslint",
 		"rust_analyzer",
 	}
 
