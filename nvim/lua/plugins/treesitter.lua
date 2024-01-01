@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		module = true,
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 		cmd = {
 			"TSInstall",
 			"TSInstallInfo",
@@ -14,42 +14,49 @@ return {
 			"TSModuleInfo",
 		},
 		build = ":TSUpdate",
-		config = function()
-			local configs = require("nvim-treesitter.configs")
-
-			configs.setup({
-				ensure_installed = {
-					"json",
-					"vim",
-					"javascript",
-					"typescript",
-					"tsx",
-					"html",
-					"css",
-					"lua",
-					"json",
-					"rust",
-					"markdown",
-					"markdown_inline",
-				},
-				highlight = {
-					enable = true,
-					disable = "",
-				},
-				autopairs = {
-					enable = true,
-				},
-				autotag = {
-					enable = true,
-				},
-			})
+		opts = {
+			highlight = { enable = true },
+			indent = { enable = true },
+			autopairs = { enable = true },
+			autotag = { enable = true },
+			ensure_installed = {
+				"json",
+				"vim",
+				"javascript",
+				"typescript",
+				"tsx",
+				"html",
+				"css",
+				"lua",
+				"json",
+				"rust",
+				"markdown",
+				"markdown_inline",
+				"python",
+				"c",
+				"yaml",
+			},
+		},
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("treesitter-context").setup({})
-		end,
+		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+		enabled = true,
+		opts = { mode = "cursor", max_lines = 3 },
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+		opts = {},
+	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		lazy = true,
+		opts = {
+			enable_autocmd = false,
+		},
 	},
 }
