@@ -174,6 +174,9 @@ exec_always --no-startup-id picom -b --config $HOME/.config/picom/picom.conf
 # xinput set 23 to mouse device number(xinput --list)
 exec_always --no-startup-id for id in $(xinput list | grep "pointer" | cut -d '=' -f 2 | cut -f 1); do xinput --set-prop $id 'libinput Accel Profile Enabled' 0, 1; done
 
+# turn off annoying bell
+exec_always --no-startup-id xset b off
+
 # catppuccin macchiato theme
 # target                 border    bg      text     indicator   child_border
 client.focused           #f5bde6   #24273a #cad3f5  #f4dbd6     #f5bde6 
