@@ -19,13 +19,6 @@ return {
 	},
 	{ "christoomey/vim-tmux-navigator" },
 	{
-		"numToStr/Comment.nvim",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("Comment").setup({})
-		end,
-	},
-	{
 		"iamcco/markdown-preview.nvim",
 		build = function()
 			vim.fn["mkdp#util#install"]()
