@@ -1,4 +1,4 @@
-# Blxckmage's neovim config
+# Blxckmage's Neovim config
 
 > If I had 8h to write a program, I would spend 6h tweaking my neovim config. -Abraham Lincoln
 
@@ -45,7 +45,7 @@
 #### Auto Closing
 
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) - Use treesitter to auto close and auto rename html tag.
-- [echanovski/mini.pairs](https://github.com/echasnovski/mini.pairs) - Neovim Lua plugin to automatically manage character pairs.
+- [echasnovski/mini.pairs](https://github.com/echasnovski/mini.pairs) - Neovim Lua plugin to automatically manage character pairs.
 
 #### Formatter & Linter
 
@@ -59,9 +59,10 @@
 - [tamton-aquib/staline.nvim](https://github.com/tamton-aquib/staline.nvim) - A modern lightweight statusline and bufferline plugin for neovim in lua.
 - [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) - A snazzy bufferline
 - [norcalli/nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) - Neovim colorizer, colors hex colors, hsl codes and more.
-- [echanovski/mini.indentscope](https://github.com/echasnovski/mini.indentscope) - Neovim Lua plugin to visualize and operate on indent scope.
+- [echasnovski/mini.indentscope](https://github.com/echasnovski/mini.indentscope) - Neovim Lua plugin to visualize and operate on indent scope.
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim) - Neovim plugin to improve the default vim.ui interfaces
 - [folke/noice.nvim](https://github.com/folke/noice.nvim) - Neovim plugin that completely replaces the UI for messages, cmdline and the popupmenu.
+- [nvimdev/dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) - Neovim Dashboard
 
 #### Colorscheme
 
@@ -79,5 +80,7 @@
 
 - [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim) - Edit filesystem like buffer
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigation) - Seamless navigation between tmux and nvim.
-- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim.
+- [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment) - Fast neovim comment plugin
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim) - Highlight, list and search todo comments in your projects
+- [echasnovski/mini.comment](https://github.com/echasnovski/mini.animate) - Animate neovim motions
+- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon) - Fast file navigation
