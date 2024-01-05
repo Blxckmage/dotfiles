@@ -47,6 +47,11 @@ return {
 					case_mode = "smart_case",
 				},
 			},
+			pickers = {
+				colorscheme = {
+					enable_preview = true,
+				},
+			},
 		})
 
 		telescope.load_extension("file_browser")
@@ -78,9 +83,11 @@ return {
 		vim.keymap.set("n", "sr", function()
 			builtin.oldfiles()
 		end)
-
 		vim.keymap.set("n", "se", function()
 			builtin.diagnostics()
+		end)
+		vim.keymap.set("n", "sc", function()
+			builtin.colorscheme()
 		end)
 	end,
 }
