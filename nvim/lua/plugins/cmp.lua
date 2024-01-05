@@ -82,6 +82,23 @@ return {
 						side_padding = 1,
 					}),
 				},
+				formatting = {
+					fields = { "abbr", "menu", "kind" },
+
+					format = function(entry, item)
+						local n = entry.source.name
+
+						if n == "nvim_lsp" then
+							item.menu = "[LSP]"
+						elseif n == "nvim_lua" then
+							item.menu = "[nvim]"
+						else
+							item.menu = string.format("[%s]", n)
+						end
+
+						return item
+					end,
+				},
 			}
 		end,
 		config = function(_, opts)
