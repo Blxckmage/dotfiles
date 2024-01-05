@@ -1,5 +1,5 @@
-require("tokyonight").setup({
+return {
 	style = "night",
 	transparent = true,
 	terminal_colors = true,
-})
+}

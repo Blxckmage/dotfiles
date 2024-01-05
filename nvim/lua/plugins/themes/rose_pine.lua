@@ -1,4 +1,4 @@
-require("rose-pine").setup({
+return {
 	variant = "auto",
 	dark_variant = "main",
-})
+}
