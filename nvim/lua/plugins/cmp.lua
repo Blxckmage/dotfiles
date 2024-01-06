@@ -13,6 +13,8 @@ return {
 		opts = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			local lsp_zero = require("lsp-zero")
+			lsp_zero.extend_cmp()
 
 			return {
 				completion = {
@@ -64,8 +66,8 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
-					{ name = "luasnip" },
-					{ name = "buffer" },
+					{ name = "luasnip", keyword_length = 2 },
+					{ name = "buffer", keyword_length = 3 },
 					{ name = "path" },
 				}),
 				window = {
@@ -105,6 +107,11 @@ return {
 			for _, source in ipairs(opts.sources) do
 				source.group_index = source.group_index or 1
 			end
+			table.insert(opts.sources, 1, {
+				name = "copilot",
+				group_index = 1,
+				priority = 100,
+			})
 			require("cmp").setup(opts)
 		end,
 	},

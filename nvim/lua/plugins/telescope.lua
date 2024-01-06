@@ -1,15 +1,68 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	module = true,
+	lazy = true,
+	cmd = "Telescope",
 	dependencies = { "nvim-telescope/telescope-file-browser.nvim" },
+	keys = {
+		{
+			"\\\\",
+			function()
+				require("telescope.builtin").buffers()
+			end,
+		},
+		{
+			"sf",
+			function()
+				require("telescope").extensions.file_browser.file_browser({
+					path = "%:p:h",
+					cwd = vim.fn.expand("%:p:h"),
+					respect_gitignore = false,
+					hidden = true,
+					grouped = true,
+					previewer = true,
+					initial_mode = "normal",
+					layout_config = { height = 20 },
+				})
+			end,
+		},
+		{
+			"s/",
+			function()
+				require("telescope.builtin").live_grep()
+			end,
+		},
+		{
+			"sd",
+			function()
+				require("telescope.builtin").find_files({
+					no_ignore = false,
+					hidden = true,
+				})
+			end,
+		},
+		{
+			"sr",
+			function()
+				require("telescope.builtin").oldfiles()
+			end,
+		},
+		{
+			"se",
+			function()
+				require("telescope.builtin").diagnostics()
+			end,
+		},
+		{
+			"sc",
+			function()
+				require("telescope.builtin").colorscheme()
+			end,
+		},
+	},
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		local builtin = require("telescope.builtin")
-
-		local function telescope_buffer_dir()
-			return vim.fn.expand("%:p:h")
-		end
 
 		local fb_actions = require("telescope").extensions.file_browser.actions
 
@@ -55,39 +108,5 @@ return {
 		})
 
 		telescope.load_extension("file_browser")
-
-		vim.keymap.set("n", "\\\\", function()
-			builtin.buffers()
-		end)
-		vim.keymap.set("n", "sf", function()
-			telescope.extensions.file_browser.file_browser({
-				path = "%:p:h",
-				cwd = telescope_buffer_dir(),
-				respect_gitignore = false,
-				hidden = true,
-				grouped = true,
-				previewer = true,
-				initial_mode = "normal",
-				layout_config = { height = 20 },
-			})
-		end)
-		vim.keymap.set("n", "s/", function()
-			builtin.live_grep()
-		end)
-		vim.keymap.set("n", "sd", function()
-			builtin.find_files({
-				no_ignore = false,
-				hidden = true,
-			})
-		end)
-		vim.keymap.set("n", "sr", function()
-			builtin.oldfiles()
-		end)
-		vim.keymap.set("n", "se", function()
-			builtin.diagnostics()
-		end)
-		vim.keymap.set("n", "sc", function()
-			builtin.colorscheme()
-		end)
 	end,
 }

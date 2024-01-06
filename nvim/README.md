@@ -79,7 +79,6 @@
 #### Utilities
 
 - [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim) - Edit filesystem like buffer
-- [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigation) - Seamless navigation between tmux and nvim.
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment) - Fast neovim comment plugin
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim) - Highlight, list and search todo comments in your projects
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.animate) - Animate neovim motions

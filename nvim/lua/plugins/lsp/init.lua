@@ -2,25 +2,56 @@ return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
-		dependencies = {},
-		config = function()
-			require("plugins.lsp.handlers").zero_setup()
+		lazy = true,
+		config = false,
+		init = function()
+			vim.g.lsp_zero_extend_cmp = 0
+			vim.g.lsp_zero_extend_lspconfig = 0
 		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+		dependencies = {
+			{
+				"williamboman/mason.nvim",
+				dependencies = {
+					"williamboman/mason-lspconfig",
+				},
+			},
+		},
+		opts = {
+			virtual_text = true,
+			signs = true,
+			update_in_insert = false,
+			underline = true,
+			severity_sort = true,
+			float = {
+				focusable = false,
+				style = "minimal",
+				border = "rounded",
+				source = "always",
+				header = "",
+				prefix = "",
+			},
+		},
 		config = function()
-			require("plugins.lsp.handlers").lsp_setup()
+			require("plugins.lsp.handlers").setup()
 		end,
 	},
 	{
 		"williamboman/mason.nvim",
-		dependencies = {
-			"williamboman/mason-lspconfig",
+		lazy = true,
+		opts = {
+			ui = {
+				check_outdated_packages_on_open = false,
+				border = "rounded",
+				icons = {
+					package_pending = " ",
+					package_installed = " ",
+					package_uninstalled = " ",
+				},
+			},
 		},
-		config = function()
-			require("plugins.lsp.handlers").mason_setup()
-		end,
 	},
 }

@@ -1,6 +1,6 @@
 return {
 	"mfussenegger/nvim-lint",
-	event = "VeryLazy",
+	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 	config = function()
 		require("lint").linters_by_ft = {
 			javascript = { "eslint" },

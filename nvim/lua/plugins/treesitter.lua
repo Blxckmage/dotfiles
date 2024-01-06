@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		version = false,
 		module = true,
 		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 		cmd = {

@@ -10,14 +10,7 @@ return {
 	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
-		config = function()
-			require("nvim-web-devicons").setup({
-				override = {},
-				default = true,
-			})
-		end,
 	},
-	{ "christoomey/vim-tmux-navigator" },
 	{
 		"iamcco/markdown-preview.nvim",
 		build = function()

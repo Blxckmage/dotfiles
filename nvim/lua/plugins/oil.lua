@@ -1,5 +1,14 @@
 return {
 	"stevearc/oil.nvim",
+	lazy = true,
+	keys = {
+		{
+			"<Leader>=",
+			function()
+				require("oil").open()
+			end,
+		},
+	},
 	opts = {},
 	config = function()
 		require("oil").setup({
@@ -23,7 +32,5 @@ return {
 				["g."] = "actions.toggle_hidden",
 			},
 		})
-
-		vim.keymap.set("n", "<Leader>=", require("oil").open, { desc = "Open parent directory" })
 	end,
 }
