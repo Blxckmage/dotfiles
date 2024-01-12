@@ -1,6 +1,6 @@
 return {
 	"stevearc/oil.nvim",
-	lazy = true,
+	event = "VimEnter",
 	keys = {
 		{
 			"<Leader>=",
