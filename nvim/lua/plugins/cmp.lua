@@ -17,13 +17,14 @@ return {
 			lsp_zero.extend_cmp()
 
 			return {
-				completion = {
-					completeopt = "menu,menuone,noinsert",
-				},
+				completion = { completeopt = "menu,menuone,noinsert" },
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
 					end,
+				},
+				experimental = {
+					ghost_text = true,
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -37,24 +38,12 @@ return {
 					}),
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
 					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
+						if require("copilot.suggestion").is_visible() then
+							require("copilot.suggestion").accept()
+						elseif cmp.visible() then
+							cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
 						elseif luasnip.expandable() then
 							luasnip.expand()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
-					end, {
-						"i",
-						"s",
-					}),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
 						else
 							fallback()
 						end
@@ -107,11 +96,6 @@ return {
 			for _, source in ipairs(opts.sources) do
 				source.group_index = source.group_index or 1
 			end
-			table.insert(opts.sources, 1, {
-				name = "copilot",
-				group_index = 1,
-				priority = 100,
-			})
 			require("cmp").setup(opts)
 		end,
 	},
