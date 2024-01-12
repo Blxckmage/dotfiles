@@ -11,13 +11,11 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{
 				"williamboman/mason.nvim",
-				dependencies = {
-					"williamboman/mason-lspconfig",
-				},
+				"williamboman/mason-lspconfig",
 			},
 		},
 		opts = {
