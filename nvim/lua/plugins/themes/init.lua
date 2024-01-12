@@ -3,19 +3,25 @@ return {
 		"folke/tokyonight.nvim",
 		lazy = true,
 		priority = 1000,
-		opts = require("plugins.themes.tokyonight"),
+		config = function()
+			require("plugins.themes.tokyonight")
+		end,
 	},
 	{
 		"catppuccin/nvim",
-		lazy = true,
+		lazy = false,
 		name = "catppuccin",
-		opts = require("plugins.themes.catppuccin"),
+		config = function()
+			require("plugins.themes.catppuccin")
+		end,
 	},
 	{
 		"rose-pine/neovim",
 		lazy = true,
 		name = "rose-pine",
 		priority = 1000,
-		opts = require("plugins.themes.rose_pine"),
+		config = function()
+			require("plugins.themes.rose_pine")
+		end,
 	},
 }
