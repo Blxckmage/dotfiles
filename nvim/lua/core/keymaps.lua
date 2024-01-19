@@ -1,36 +1,35 @@
-local keymap = vim.keymap
-local silent = { silent = true }
+local function map(mode, lhs, rhs, opt)
+	if not opt or type(opt) == "string" then
+		opt = { silent = true, desc = opt }
+	end
+	vim.keymap.set(mode, lhs, rhs, opt)
+end
 
 -- New Tab
-keymap.set("n", "te", ":tabedit<Return>", silent)
-keymap.set("n", "ss", ":split<Return><C-w>w", silent)
-keymap.set("n", "sv", ":vsplit<Return><C-w>w", silent)
+map("n", "te", ":tabedit<Return>")
+map("n", "ss", ":split<Return><C-w>w")
+map("n", "sv", ":vsplit<Return><C-w>w")
 
 -- Move window
-keymap.set("n", "<Space>", "<C-w>w")
-keymap.set("", "s<left>", "<C-w>h")
-keymap.set("", "s<up>", "<C-w>k")
-keymap.set("", "s<down>", "<C-w>j")
-keymap.set("", "s<right>", "<C-w>l")
-keymap.set("", "sh", "<C-w>h")
-keymap.set("", "sk", "<C-w>k")
-keymap.set("", "sj", "<C-w>j")
-keymap.set("", "sl", "<C-w>l")
+map("n", "<Space>", "<C-w>w")
+map("n", "sh", "<C-w>h")
+map("n", "sk", "<C-w>k")
+map("n", "sj", "<C-w>j")
+map("n", "sl", "<C-w>l")
 
--- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>")
+map("n", "<C-Down>", "<cmd>resize -2<cr>")
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
 
 -- Nvim-tree
-keymap.set("n", "<Leader>-", ":NvimTreeToggle<CR>", { silent = true })
+map("n", "<Leader>-", "<cmd>NvimTreeToggle<CR>")
 
--- Don't yank on delete char
-keymap.set("n", "x", '"_x', silent)
-keymap.set("n", "X", '"_X', silent)
-keymap.set("v", "x", '"_x', silent)
-keymap.set("v", "X", '"_X', silent)
+-- Move text up and down
+map("v", "<S-j>", ":m '>+1<cr>gv=gv")
+map("v", "<S-k>", ":m '<-2<cr>gv=gv")
 
--- Don't yank on visual paste
-keymap.set("v", "p", '"_dP', silent)
+-- Better indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
