@@ -8,10 +8,10 @@ return {
 			right = { "lsp", "  ", "line_column" },
 		},
 		mode_colors = {
-			i = "#ffb86c",
-			n = "#a3be8c",
-			c = "#88c0d0",
-			v = "#d08770",
+			i = "#a6e3a1",
+			n = "#89b4fa",
+			c = "#fab387",
+			v = "#cba6f7",
 		},
 		defaults = {
 			true_colors = true,
