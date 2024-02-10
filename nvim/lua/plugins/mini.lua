@@ -118,7 +118,8 @@ return {
 	},
 	{
 		"echasnovski/mini.starter",
-		version = false, -- wait till new 0.7.0 release to put it back on semver
+		version = false,
+		lazy = true,
 		event = "VimEnter",
 		opts = function()
 			local logo = [[
@@ -133,55 +134,33 @@ return {
      ░          ░  ░     ░  ░░ ░      ░  ░          ░         ░  ░      ░    ░  ░
           ░                  ░                                                   
     ]]
-			local pad = string.rep(" ", 23)
-			local new_section = function(name, action, section)
-				return { name = name, action = action, section = pad .. section }
-			end
-
 			local starter = require("mini.starter")
-    --stylua: ignore
-    local config = {
-      evaluate_single = true,
-      header = logo,
-      items = {
-        new_section("Find file",       "Telescope find_files",                                   "Telescope"),
-        new_section("Recent files",    "Telescope oldfiles",                                     "Telescope"),
-        new_section("Grep text",       "Telescope live_grep",                                    "Telescope"),
-        new_section("Lazy",            "Lazy",                                                   "Config"),
-        new_section("New file",        "ene | startinsert",                                      "Built-in"),
-        new_section("Quit",            "qa",                                                     "Built-in"),
-      },
-      content_hooks = {
-        starter.gen_hook.adding_bullet(pad .. "░ ", false),
-        starter.gen_hook.aligning("center", "center"),
-      },
-    }
+			local config = {
+				evaluate_single = true,
+				header = logo,
+				items = {
+					{ name = "Find File", action = ":Telescope find_files", section = "Telescope" },
+					{ name = "Grep Text", action = ":Telescope live_grep", section = "Telescope" },
+					{ name = "Recent Files", action = ":Telescope oldfiles", section = "Telescope" },
+					starter.sections.recent_files(5, false),
+					{ name = "Lazy", action = ":Lazy", section = "Lazy" },
+					{ name = "New File", action = ":ene | startinsert", section = "Built-in" },
+					{ name = "Quit", action = ":qa", section = "Built-in" },
+				},
+				content_hooks = {
+					starter.gen_hook.adding_bullet("░ "),
+					starter.gen_hook.indexing("all", { "Telescope", "Recent files", "Lazy", "Built-in" }),
+					starter.gen_hook.aligning("center", "center"),
+					starter.gen_hook.padding(0, 1),
+				},
+				query_updaters = [[abcdefghijklmnopqrstuvwxyz0123456789_-.]],
+				footer = "",
+			}
 			return config
 		end,
 		config = function(_, config)
-			if vim.o.filetype == "lazy" then
-				vim.cmd.close()
-				vim.api.nvim_create_autocmd("User", {
-					pattern = "MiniStarterOpened",
-					callback = function()
-						require("lazy").show()
-					end,
-				})
-			end
-
 			local starter = require("mini.starter")
 			starter.setup(config)
-
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "LazyVimStarted",
-				callback = function()
-					local stats = require("lazy").stats()
-					local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-					local pad_footer = string.rep(" ", 23)
-					starter.config.footer = pad_footer .. "🧙" .. "Startup Time: " .. ms .. "ms"
-					pcall(starter.refresh)
-				end,
-			})
 		end,
 	},
 }
