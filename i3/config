@@ -156,28 +156,9 @@ for_window [class="flameshot"] floating enable, fullscreen disable, move absolut
 # set gaps
 gaps inner 5
 gaps outer 5
-# smart_gaps on
-# smart_borders on
 
-# launch polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+include $HOME/.config/i3/script/autostart.conf
 
-# launch feh
-exec_always --no-startup-id feh --bg-fill --randomize $HOME/Pictures/wallpapers/*
-
-# monitor settings
-exec --no-startup-id $HOME/.config/i3/script/display.sh
-
-# picom
-exec_always --no-startup-id picom -b --config $HOME/.config/picom/picom.conf
-
-# xinput set 23 to mouse device number(xinput --list)
-exec_always --no-startup-id for id in $(xinput list | grep "pointer" | cut -d '=' -f 2 | cut -f 1); do xinput --set-prop $id 'libinput Accel Profile Enabled' 0, 1; done
-
-# turn off annoying bell
-exec_always --no-startup-id xset b off
-
-# catppuccin macchiato theme
 # target                 border    bg      text     indicator   child_border
 client.focused           #f5bde6   #24273a #cad3f5  #f4dbd6     #f5bde6 
 client.focused_inactive  #c6a0f6   #24273a #cad3f5  #f4dbd6     #c6a0f6
