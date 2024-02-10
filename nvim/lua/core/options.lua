@@ -13,7 +13,6 @@ local options = {
 	pumheight = 10, --- Max num of items in completion menu
 	scrolloff = 8, --- Always keep space when scrolling to bottom/top edge
 	shiftwidth = 2, --- Change a number of space characters inserted for indentation
-	showtabline = 2, --- Always show tabs
 	smartcase = true, --- Uses case in search
 	smartindent = true, --- Makes indenting s/mart
 	smarttab = true, --- Makes tabbing smarter
@@ -62,4 +61,9 @@ end
 
 for k, v in pairs(globals) do
 	vim.g[k] = v
+end
+
+--- Disable providers
+for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
+	vim.g["loaded_" .. provider .. "_provider"] = 0
 end
