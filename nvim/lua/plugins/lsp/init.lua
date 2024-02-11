@@ -11,7 +11,6 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		lazy = true,
 		cmd = { "LspInfo", "LspInstall", "LspStart" },
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
@@ -41,6 +40,7 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
+		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
 		lazy = false,
 		config = true,
 		opts = {
