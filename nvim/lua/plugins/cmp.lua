@@ -1,7 +1,6 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		version = false,
 		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-buffer",
@@ -62,15 +61,16 @@ return {
 				window = {
 					completion = cmp.config.window.bordered({
 						border = "rounded",
-						winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:Search",
-						col_offset = -3,
-						side_padding = 1,
+						scrollbar = true,
+						scrolloff = 6,
+						col_offset = -2,
+						side_padding = 0,
 					}),
 					documentation = cmp.config.window.bordered({
 						border = "rounded",
-						winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:Search",
-						col_offset = -3,
-						side_padding = 1,
+						col_offset = -1,
+						side_padding = 0,
+						scrollbar = false,
 					}),
 				},
 				formatting = {
