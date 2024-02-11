@@ -16,7 +16,6 @@ return {
 		priority = 1000,
 		opts = {
 			flavour = "mocha",
-			transparent_background = true,
 			term_colors = true,
 			styles = {
 				keywords = { "italic" },
@@ -38,6 +37,7 @@ return {
 					indentscope_color = "lavender",
 				},
 				native_lsp = {
+					enabled = true,
 					virtual_text = {
 						errors = { "italic" },
 						hints = { "italic" },
