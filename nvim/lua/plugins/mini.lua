@@ -1,7 +1,7 @@
 return {
 	{
 		"echasnovski/mini.pairs",
-		event = "VeryLazy",
+		event = "InsertEnter",
 		version = false,
 		config = function()
 			require("mini.pairs").setup()
@@ -35,7 +35,11 @@ return {
 	},
 	{
 		"echasnovski/mini.comment",
-		event = "VeryLazy",
+		keys = {
+			{ "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+			{ "gcc", mode = "n", desc = "Comment toggle current line" },
+			{ "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+		},
 		opts = {
 			options = {
 				custom_commentstring = function()
