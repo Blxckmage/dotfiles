@@ -21,10 +21,9 @@ require("lazy").setup({
 		lazy = false,
 		version = false,
 	},
-	checker = { enabled = true, notify = false },
+	checker = { enabled = false, notify = false },
 	change_detection = {
-		enabled = true,
-		notify = false,
+		enabled = false,
 	},
 	performance = {
 		rtp = {
