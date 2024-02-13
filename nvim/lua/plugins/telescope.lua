@@ -1,18 +1,18 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	module = true,
-	lazy = true,
 	cmd = "Telescope",
 	dependencies = { "nvim-telescope/telescope-file-browser.nvim" },
 	keys = {
 		{
 			"\\\\",
+			desc = "Find Buffers",
 			function()
 				require("telescope.builtin").buffers()
 			end,
 		},
 		{
 			"sf",
+			desc = "Find Browser",
 			function()
 				require("telescope").extensions.file_browser.file_browser({
 					path = "%:p:h",
@@ -28,12 +28,14 @@ return {
 		},
 		{
 			"s/",
+			desc = "Find String",
 			function()
 				require("telescope.builtin").live_grep()
 			end,
 		},
 		{
 			"sd",
+			desc = "Find Files",
 			function()
 				require("telescope.builtin").find_files({
 					no_ignore = false,
@@ -43,19 +45,23 @@ return {
 		},
 		{
 			"sr",
+			desc = "Find Recent Files",
 			function()
 				require("telescope.builtin").oldfiles()
 			end,
 		},
 		{
 			"se",
+			desc = "Diagnostics",
 			function()
 				require("telescope.builtin").diagnostics()
 			end,
 		},
 		{
 			"sc",
+			desc = "Colorscheme",
 			function()
+				vim.api.nvim_exec_autocmds("User", { pattern = "ColorSchemeLoad" })
 				require("telescope.builtin").colorscheme()
 			end,
 		},

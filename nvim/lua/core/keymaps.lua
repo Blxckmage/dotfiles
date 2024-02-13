@@ -1,35 +1,42 @@
-local function map(mode, lhs, rhs, opt)
+local function keymap(mode, lhs, rhs, opt)
 	if not opt or type(opt) == "string" then
 		opt = { silent = true, desc = opt }
 	end
 	vim.keymap.set(mode, lhs, rhs, opt)
 end
 
+-- General Things
+keymap("n", "<leader>ul", "<cmd>Lazy<cr>", { noremap = true, silent = true, desc = "Lazy" })
+
 -- New Tab
-map("n", "te", ":tabedit<Return>")
-map("n", "ss", ":split<Return><C-w>w")
-map("n", "sv", ":vsplit<Return><C-w>w")
+keymap("n", "te", ":tabedit<Return>", "New tab")
+keymap("n", "ss", ":split<Return><C-w>w", "Split window")
+keymap("n", "sv", ":vsplit<Return><C-w>w", "Vsplit window")
 
 -- Move window
-map("n", "<Space>", "<C-w>w")
-map("n", "sh", "<C-w>h")
-map("n", "sk", "<C-w>k")
-map("n", "sj", "<C-w>j")
-map("n", "sl", "<C-w>l")
+keymap("n", "<Space>", "<C-w>w", "Move to next window")
+keymap("n", "sh", "<C-w>h", "Move to left window")
+keymap("n", "sk", "<C-w>k", "Move to top window")
+keymap("n", "sj", "<C-w>j", "Move to bottom window")
+keymap("n", "sl", "<C-w>l", "Move to right window")
+
+-- Buffer keymaps
+keymap("n", "<leader>bf", function()
+	vim.lsp.buf.format()
+end, { noremap = true, silent = true, desc = "Format buffer" })
+keymap("n", "<C-l>", "<cmd>bnext<cr>", "Next Buffer")
+keymap("n", "<C-h>", "<cmd>bprevious<cr>", "Previous Buffer")
 
 -- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>")
-map("n", "<C-Down>", "<cmd>resize -2<cr>")
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
-
--- Nvim-tree
-map("n", "<Leader>-", "<cmd>NvimTreeToggle<CR>")
+keymap("n", "<C-Up>", "<cmd>resize +2<cr>", "Resize window up")
+keymap("n", "<C-Down>", "<cmd>resize -2<cr>", "Resize window down")
+keymap("n", "<C-Left>", "<cmd>vertical resize -2<cr>", "Resize window left")
+keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", "Resize window right")
 
 -- Move text up and down
-map("v", "<S-j>", ":m '>+1<cr>gv=gv")
-map("v", "<S-k>", ":m '<-2<cr>gv=gv")
+keymap("v", "<S-j>", ":m '>+1<cr>gv=gv", "Move line down")
+keymap("v", "<S-k>", ":m '<-2<cr>gv=gv", "Move line up")
 
 -- Better indenting
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+keymap("v", "<", "<gv", "Indent left")
+keymap("v", ">", ">gv", "Indent right")

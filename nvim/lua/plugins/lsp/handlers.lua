@@ -4,39 +4,28 @@ M.setup = function()
 	local lspconfig = require("lspconfig")
 	require("lsp-zero").extend_lspconfig()
 
-	local auto_install = {
-		"lua_ls",
-		"cssls",
-		"html",
-		"tsserver",
-		"rust_analyzer",
-	}
-
 	require("lsp-zero").on_attach(function(client, bufnr)
-		local opts = { buffer = bufnr, remap = false }
-
 		vim.keymap.set("n", "gd", function()
 			vim.lsp.buf.definition()
-		end, opts)
+		end, { buffer = bufnr, noremap = true, silent = true, desc = "Go To Definition" })
 		vim.keymap.set("n", "K", function()
 			vim.lsp.buf.hover()
-		end, opts)
+		end, { buffer = bufnr, noremap = true, silent = true, desc = "Show Hover" })
 		vim.keymap.set("n", "grn", function()
 			vim.lsp.buf.rename()
-		end, opts)
+		end, { buffer = bufnr, noremap = true, silent = true, desc = "Rename" })
 		vim.keymap.set("n", "<leader>ca", function()
 			vim.lsp.buf.code_action()
-		end, opts)
+		end, { buffer = bufnr, noremap = true, silent = true, desc = "Code Action" })
 		vim.keymap.set("n", "<C-j>", function()
 			vim.diagnostic.goto_next()
-		end, opts)
+		end, { buffer = bufnr, noremap = true, silent = true, desc = "Next Diagnostic" })
 		vim.keymap.set("i", "<C-h>", function()
 			vim.lsp.buf.signature_help()
-		end, opts)
+		end, { buffer = bufnr, noremap = true, silent = true, desc = "Signature Help" })
 	end)
 
 	require("mason-lspconfig").setup({
-		ensure_installed = auto_install,
 		handlers = {
 			require("lsp-zero").default_setup,
 		},

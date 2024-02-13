@@ -2,6 +2,7 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		lazy = true,
+		event = "User ColorSchemeLoad",
 		priority = 1000,
 		opts = {
 			style = "night",
@@ -13,6 +14,7 @@ return {
 		"catppuccin/nvim",
 		lazy = true,
 		name = "catppuccin",
+		event = "User ColorSchemeLoad",
 		priority = 1000,
 		opts = {
 			flavour = "mocha",
@@ -61,6 +63,7 @@ return {
 		"rose-pine/neovim",
 		lazy = true,
 		name = "rose-pine",
+		event = "User ColorSchemeLoad",
 		priority = 1000,
 		opts = {
 			variant = "auto",

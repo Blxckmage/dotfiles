@@ -1,25 +1,24 @@
 return {
-	"norcalli/nvim-colorizer.lua",
-	event = { "BufReadPost", "BufNewFile" },
-	config = function()
-		local colorizer = require("colorizer")
-
-		colorizer.setup({
-			css = {
-				RGB = true,
-				RRGGBB = true,
-				names = true,
-				RRGGBBAA = true,
-				rgb_fn = true,
-				hsl_fn = true,
-				css = true,
-				css_fn = true,
-			},
-			html = { mode = "background" },
-			markdown = { names = false },
-			"yaml",
-			lua = { names = false },
-			"*",
-		})
-	end,
+	"NvChad/nvim-colorizer.lua",
+	event = "VeryLazy",
+	opts = {
+		filetypes = { "*" },
+		user_default_options = {
+			RGB = true,
+			RRGGBB = true,
+			names = true,
+			RRGGBBAA = true,
+			AARRGGBB = true,
+			rgb_fn = true,
+			hsl_fn = true,
+			css = true,
+			css_fn = true,
+			mode = "background",
+			tailwind = true,
+			sass = { enable = false, parsers = { "css" } },
+			virtualtext = "■",
+			always_update = false,
+		},
+		buftypes = {},
+	},
 }

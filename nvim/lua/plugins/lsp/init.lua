@@ -15,7 +15,6 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{
-				"williamboman/mason.nvim",
 				"williamboman/mason-lspconfig",
 			},
 		},
@@ -41,7 +40,8 @@ return {
 	{
 		"williamboman/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-		lazy = false,
+		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+		build = ":MasonUpdate",
 		config = true,
 		opts = {
 			ui = {

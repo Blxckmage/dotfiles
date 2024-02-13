@@ -2,8 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
-		module = true,
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufNewFile" },
 		cmd = {
 			"TSInstall",
 			"TSInstallInfo",
