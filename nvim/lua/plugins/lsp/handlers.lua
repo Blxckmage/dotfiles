@@ -4,14 +4,6 @@ M.setup = function()
 	local lspconfig = require("lspconfig")
 	require("lsp-zero").extend_lspconfig()
 
-	local auto_install = {
-		"lua_ls",
-		"cssls",
-		"html",
-		"tsserver",
-		"rust_analyzer",
-	}
-
 	require("lsp-zero").on_attach(function(client, bufnr)
 		vim.keymap.set("n", "gd", function()
 			vim.lsp.buf.definition()
@@ -34,7 +26,6 @@ M.setup = function()
 	end)
 
 	require("mason-lspconfig").setup({
-		ensure_installed = auto_install,
 		handlers = {
 			require("lsp-zero").default_setup,
 		},

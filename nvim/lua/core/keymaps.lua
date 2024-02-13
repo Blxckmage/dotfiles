@@ -6,7 +6,7 @@ local function keymap(mode, lhs, rhs, opt)
 end
 
 -- General Things
-keymap("n", "<leader>ul", "<cmd>Lazy<cr>", { noremap = true, silent = true, desc = "Lazygit" })
+keymap("n", "<leader>ul", "<cmd>Lazy<cr>", { noremap = true, silent = true, desc = "Lazy" })
 
 -- New Tab
 keymap("n", "te", ":tabedit<Return>", "New tab")
@@ -21,7 +21,6 @@ keymap("n", "sj", "<C-w>j", "Move to bottom window")
 keymap("n", "sl", "<C-w>l", "Move to right window")
 
 -- Buffer keymaps
-keymap("n", "<leader>bd", "<cmd>bd<cr>", { noremap = true, silent = true, desc = "Close buffer" })
 keymap("n", "<leader>bf", function()
 	vim.lsp.buf.format()
 end, { noremap = true, silent = true, desc = "Format buffer" })
@@ -33,9 +32,6 @@ keymap("n", "<C-Up>", "<cmd>resize +2<cr>", "Resize window up")
 keymap("n", "<C-Down>", "<cmd>resize -2<cr>", "Resize window down")
 keymap("n", "<C-Left>", "<cmd>vertical resize -2<cr>", "Resize window left")
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", "Resize window right")
-
--- Nvim-tree
-keymap("n", "<Leader>-", "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree")
 
 -- Move text up and down
 keymap("v", "<S-j>", ":m '>+1<cr>gv=gv", "Move line down")

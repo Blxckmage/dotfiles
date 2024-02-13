@@ -23,7 +23,9 @@ return {
 					end,
 				},
 				experimental = {
-					ghost_text = true,
+					ghost_text = {
+						hl_group = "CmpGhostText",
+					},
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -64,7 +66,6 @@ return {
 						scrollbar = true,
 						scrolloff = 6,
 						col_offset = -2,
-						side_padding = 0,
 					}),
 					documentation = cmp.config.window.bordered({
 						border = "rounded",

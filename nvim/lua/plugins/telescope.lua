@@ -1,7 +1,5 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	module = true,
-	lazy = true,
 	cmd = "Telescope",
 	dependencies = { "nvim-telescope/telescope-file-browser.nvim" },
 	keys = {
@@ -63,6 +61,7 @@ return {
 			"sc",
 			desc = "Colorscheme",
 			function()
+				vim.api.nvim_exec_autocmds("User", { pattern = "ColorSchemeLoad" })
 				require("telescope.builtin").colorscheme()
 			end,
 		},
