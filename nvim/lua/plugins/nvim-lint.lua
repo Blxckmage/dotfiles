@@ -1,16 +1,20 @@
 return {
 	"mfussenegger/nvim-lint",
-	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-	config = function()
-		require("lint").linters_by_ft = {
+	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+	opts = {
+		-- Event to trigger linters
+		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+		linters_by_ft = {
+			lua = { "stylua" },
 			javascript = { "eslint" },
 			typescript = { "eslint" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
 			python = { "flake8" },
-		}
-
+		},
+	},
+	config = function()
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
 			group = vim.api.nvim_create_augroup("lint", { clear = true }),
 			callback = function()
