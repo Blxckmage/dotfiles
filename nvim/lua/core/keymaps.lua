@@ -24,8 +24,6 @@ keymap("n", "sl", "<C-w>l", "Move to right window")
 keymap("n", "<leader>bf", function()
 	vim.lsp.buf.format()
 end, { noremap = true, silent = true, desc = "Format buffer" })
-keymap("n", "<C-l>", "<cmd>bnext<cr>", "Next Buffer")
-keymap("n", "<C-h>", "<cmd>bprevious<cr>", "Previous Buffer")
 
 -- Resize window using <ctrl> arrow keys
 keymap("n", "<C-Up>", "<cmd>resize +2<cr>", "Resize window up")
