@@ -1,12 +1,21 @@
 return {
 	"stevearc/conform.nvim",
-	lazy = true,
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
+	keys = {
+		{
+			"<leader>bf",
+			function()
+				require("conform").format({ async = true, lsp_fallback = true })
+			end,
+			mode = "",
+			desc = "Format buffer",
+		},
+	},
 	opts = {
 		format_on_save = {
-			timeout_ms = 3000,
-			async = false,
-			quiet = false,
+			timeout_ms = 500,
+			lsp_fallback = true,
 		},
 		formatters_by_ft = {
 			javascript = { { "prettierd", "prettier" } },
@@ -20,6 +29,7 @@ return {
 			markdown = { { "prettierd", "prettier" } },
 			lua = { "stylua" },
 			python = { "black" },
+			c = { "clang_format" },
 		},
 		formatters = {
 			black = {
@@ -27,7 +37,4 @@ return {
 			},
 		},
 	},
-	-- config = function(_, opts)
-	-- 	require("conform").setup(opts)
-	-- end,
 }

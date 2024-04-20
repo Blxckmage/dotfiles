@@ -20,11 +20,6 @@ keymap("n", "sk", "<C-w>k", "Move to top window")
 keymap("n", "sj", "<C-w>j", "Move to bottom window")
 keymap("n", "sl", "<C-w>l", "Move to right window")
 
--- Buffer keymaps
-keymap("n", "<leader>bf", function()
-	vim.lsp.buf.format()
-end, { noremap = true, silent = true, desc = "Format buffer" })
-
 -- Resize window using <ctrl> arrow keys
 keymap("n", "<C-Up>", "<cmd>resize +2<cr>", "Resize window up")
 keymap("n", "<C-Down>", "<cmd>resize -2<cr>", "Resize window down")
