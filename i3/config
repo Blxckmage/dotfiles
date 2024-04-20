@@ -79,9 +79,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # define variables for workspace
 set $ws1 "1"
 set $ws2 "2"
@@ -125,6 +122,7 @@ bindsym $mod+Shift+r restart
 # exit i3 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# rezize window
 mode "resize" {
       	bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
@@ -141,9 +139,8 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
-  }
-
-  bindsym $mod+r mode "resize"
+}
+bindsym $mod+r mode "resize"
 
 # Screenshots
 bindsym Print exec --no-startup-id flameshot gui
@@ -152,6 +149,7 @@ default_border pixel 1
 default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
 for_window [class="flameshot"] floating enable, fullscreen disable, move absolute position 0 0, border pixel 0
+for_window [class="mpv"] floating enable, border pixel 0
 
 # set gaps
 gaps inner 5
