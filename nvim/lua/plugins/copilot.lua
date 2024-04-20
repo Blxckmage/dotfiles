@@ -2,6 +2,7 @@ return {
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
 	event = "InsertEnter",
+	build = ":Copilot auth",
 	opts = {
 		suggestion = {
 			accept = false,
@@ -11,6 +12,9 @@ return {
 		panel = {
 			enabled = true,
 			auto_refresh = false,
+		},
+		filetypes = {
+			markdown = true,
 		},
 	},
 }

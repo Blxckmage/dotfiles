@@ -1,29 +1,62 @@
 return {
 	"ThePrimeagen/harpoon",
 	branch = "harpoon2",
-	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-	config = function()
-		local harpoon = require("harpoon")
-		harpoon:setup({})
+	opts = {
+		menu = {
+			width = vim.api.nvim_win_get_width(0) - 4,
+		},
+	},
 
-		vim.keymap.set("n", "<leader>a", function()
-			harpoon:list():append()
-			vim.notify("Harpooned!", vim.log.levels.INFO)
-		end, { noremap = true, silent = true, desc = "Add buffer to harpoon" })
-		vim.keymap.set("n", "<C-e>", function()
-			harpoon.ui:toggle_quick_menu(harpoon:list())
-		end, { noremap = true, silent = true, desc = "Harpoon quick menu" })
-		vim.keymap.set("n", "<leader>1", function()
-			harpoon:list():select(1)
-		end, { noremap = true, silent = true, desc = "Select harpoon 1" })
-		vim.keymap.set("n", "<leader>2", function()
-			harpoon:list():select(2)
-		end, { noremap = true, silent = true, desc = "Select harpoon 2" })
-		vim.keymap.set("n", "<leader>3", function()
-			harpoon:list():select(3)
-		end, { noremap = true, silent = true, desc = "Select harpoon 3" })
-		vim.keymap.set("n", "<leader>4", function()
-			harpoon:list():select(4)
-		end, { noremap = true, silent = true, desc = "Select harpoon 4" })
-	end,
+	keys = {
+		{
+			"<leader>a",
+			desc = "Add buffer to harpoon",
+			function()
+				require("harpoon"):list():add()
+				vim.notify("Harpooned!", vim.log.levels.INFO)
+			end,
+		},
+		{
+			"<C-e>",
+			desc = "Harpoon quick menu",
+			function()
+				require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+			end,
+		},
+		{
+			"<leader>1",
+			desc = "Select harpoon 1",
+			function()
+				require("harpoon"):list():select(1)
+			end,
+		},
+		{
+			"<leader>2",
+			desc = "Select harpoon 2",
+			function()
+				require("harpoon"):list():select(2)
+			end,
+		},
+		{
+			"<leader>3",
+			desc = "Select harpoon 3",
+			function()
+				require("harpoon"):list():select(3)
+			end,
+		},
+		{
+			"<leader>4",
+			desc = "Select harpoon 4",
+			function()
+				require("harpoon"):list():select(4)
+			end,
+		},
+		{
+			"<leader>5",
+			desc = "Select harpoon 5",
+			function()
+				require("harpoon"):list():select(5)
+			end,
+		},
+	},
 }
