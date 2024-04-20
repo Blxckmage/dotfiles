@@ -8,6 +8,9 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export STARSHIP_CACHE="$HOME/.starship/cache"
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/.local/share/fnm:$PATH"
+export PATH=$PATH:/home/blackmage/.spicetify
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000

@@ -6,3 +6,6 @@ alias lg="lazygit"
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+
+# zellij
+alias zel="zellij"
