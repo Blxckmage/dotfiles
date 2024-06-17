@@ -18,7 +18,6 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 			autopairs = { enable = true },
-			autotag = { enable = true },
 			ensure_installed = {
 				"json",
 				"vim",
@@ -50,7 +49,9 @@ return {
 	{
 		"windwp/nvim-ts-autotag",
 		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-		opts = {},
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
