@@ -25,4 +25,14 @@ return {
 			},
 		},
 	},
+	{
+		"vyfor/cord.nvim",
+		build = "./build",
+		event = "VeryLazy",
+		opts = {
+			editor = {
+				tooltip = "One Text Editor To Rule Them All",
+			},
+		},
+	},
 }
