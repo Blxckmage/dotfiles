@@ -27,7 +27,7 @@ return {
 			html = { "prettier" },
 			json = { "prettierd", "prettier", stop_after_first = true },
 			yaml = { "prettierd", "prettier", stop_after_first = true },
-			markdown = { "markdownlint", "prettierd", "prettier", stop_after_first = true },
+			markdown = { "prettierd", "prettier", stop_after_first = true },
 			lua = { "stylua" },
 			python = { "black" },
 			c = { "clang_format" },

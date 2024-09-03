@@ -2,13 +2,11 @@ return {
 	"mfussenegger/nvim-lint",
 	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 	opts = {
-		-- Event to trigger linters
 		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 		linters_by_ft = {
 			lua = { "stylua" },
 			javascript = { "eslint" },
 			typescript = { "eslint" },
-			markdown = { "markdownlint" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
