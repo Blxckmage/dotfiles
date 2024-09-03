@@ -21,8 +21,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
-# start browser
-bindsym $mod+Shift+w exec firefox
+# start browser (symlink zen_browser on flatpak to /usr/bin/)
+bindsym $mod+Shift+w exec zen_browser
 
 # kill focused window
 bindsym $mod+Shift+q kill
