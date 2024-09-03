@@ -17,3 +17,6 @@ alias gi='git init'
 alias ga='git add'
 alias gss='git status -s'
 alias gs='echo ""; echo "*********************************************"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "*********************************************"; echo ""; git status'
+
+# Obsidian
+alias ov="cd $HOME/Documents/Obsidian\ Vault/"
