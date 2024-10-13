@@ -16,8 +16,11 @@ return {
 	opts = {
 		format_on_save = {
 			timeout_ms = 500,
-			lsp_fallback = true,
+			lsp_format = "fallback",
 		},
+		-- format_after_save = {
+		-- 	lsp_format = "fallback",
+		-- },
 		formatters_by_ft = {
 			javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
 			typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
