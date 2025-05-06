@@ -14,12 +14,14 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
+
 export SAVEHIST=1000
 export setopt APPEND_HISTORY
 export setopt SHARE_HISTORY
 export setopt HIST_EXPIRE_DUPS_FIRST
 export setopt EXTENDED_HISTORY
 
-eval "$(fnm env)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

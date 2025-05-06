@@ -29,9 +29,11 @@
 
   # Draw a line between notifications
   separator_height = 1
-  separator_color= frame
+  # separator_color= frame
+  separator_color = "#585858"
   frame_width = 2.5
-  frame_color = "#8AADF4"
+  # frame_color = "#8AADF4"
+  frame_color = "#83a598"
 
   # Set notification padding
   padding = 8
@@ -99,15 +101,32 @@
   mouse_right_click = close_all
 
 
+# Catppuccin
+# [urgency_low]
+#   background = "#1E1E2E"
+#   foreground = "#CDD6F4"
+#
+# [urgency_normal]
+#   background = "#1E1E2E"
+#   foreground = "#CDD6F4"
+#
+# [urgency_critical]
+#   background = "#1E1E2E"
+#   foreground = "#CDD6F4"
+#   frame_color = "#FAB387"
+
+# Gruvbox
 [urgency_low]
-  background = "#1E1E2E"
-  foreground = "#CDD6F4"
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 5
 
 [urgency_normal]
-  background = "#1E1E2E"
-  foreground = "#CDD6F4"
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 20
 
 [urgency_critical]
-  background = "#1E1E2E"
-  foreground = "#CDD6F4"
-  frame_color = "#FAB387"
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 0
