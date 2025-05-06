@@ -1,0 +1,7 @@
+include $HOME/.config/sway/autostart.conf
+include $HOME/.config/sway/keymaps.conf
+include $HOME/.config/sway/workspace.conf
+include $HOME/.config/sway/input.conf
+include $HOME/.config/sway/appearance.conf
+include $HOME/.config/sway/windowrules.conf
+include $HOME/.config/sway/swayfx.conf
