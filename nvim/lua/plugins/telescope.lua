@@ -75,6 +75,13 @@ return {
 				require("telescope.builtin").colorscheme()
 			end,
 		},
+		{
+			"sm",
+			desc = "Keymaps",
+			function()
+				require("telescope.builtin").keymaps()
+			end,
+		},
 	},
 	config = function()
 		local telescope = require("telescope")

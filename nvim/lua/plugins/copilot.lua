@@ -1,12 +1,14 @@
 return {
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
-	event = "InsertEnter",
+	event = "BufReadPost",
 	build = ":Copilot auth",
 	opts = {
 		suggestion = {
-			accept = false,
-			enabled = true,
+			keymap = {
+				accept = false,
+			},
+			enabled = not vim.g.ai_cmp,
 			auto_trigger = true,
 		},
 		panel = {

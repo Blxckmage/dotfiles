@@ -70,4 +70,23 @@ return {
 			dark_variant = "main",
 		},
 	},
+	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+		config = true,
+		opts = {
+			undercurl = true,
+			underline = true,
+			bold = true,
+			italic = {
+				strings = false,
+				comments = false,
+				operators = false,
+				folds = false,
+			},
+			inverse = true,
+			contrast = "hard",
+			transparent_mode = true,
+		},
+	},
 }

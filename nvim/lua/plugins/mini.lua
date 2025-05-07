@@ -1,8 +1,15 @@
 return {
 	{
 		"echasnovski/mini.pairs",
-		event = "InsertEnter",
+		event = "VeryLazy",
 		version = false,
+		opts = {
+			insert = true,
+			command = true,
+			terminal = false,
+		},
+		skip_unbalanced = true,
+		markdown = true,
 		config = function()
 			require("mini.pairs").setup()
 		end,
@@ -280,6 +287,38 @@ return {
 				end,
 			})
 		end,
+	},
+	{
+		"echasnovski/mini.statusline",
+		dependencies = {
+			"echasnovski/mini.icons",
+		},
+		opts = {
+			set_vim_settings = false,
+			content = {
+				active = function()
+					local MiniStatusline = require("mini.statusline")
+					local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+					local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+					return MiniStatusline.combine_groups({
+						{ hl = mode_hl, strings = { mode:upper() } },
+						"%<",
+						{ hl = "MiniStatuslineFilename", strings = { filename } },
+						"%=",
+						{
+							hl = "MiniStatuslineFileinfo",
+							strings = {
+								vim.bo.filetype ~= ""
+									and require("mini.icons").get("filetype", vim.bo.filetype)
+										.. " "
+										.. vim.bo.filetype,
+							},
+						},
+						{ hl = mode_hl, strings = { "%l:%v" } },
+					})
+				end,
+			},
+		},
 	},
 	{
 		"echasnovski/mini.starter",

@@ -16,6 +16,7 @@ return {
 		dependencies = {
 			{
 				"williamboman/mason-lspconfig",
+				config = function() end,
 			},
 		},
 		opts = {
