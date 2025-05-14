@@ -45,6 +45,7 @@ local options = {
 	backupskip = "/tmp/*,/private/tmp*", --- Skip backup for specific directories
 	grepformat = "%f:%l:%c:%m", --- Format for parsing search results (File:Line:Column:Message)
 	grepprg = "rg --vimgrep --no-heading --smart-case", --- Set the external grep program (ripgrep) with Vim grep options
+	signcolumn = "yes", --- Avoid annoying shifting of text when showing signs
 }
 
 local globals = {

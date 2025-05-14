@@ -1,50 +1,57 @@
 local M = {}
 
-M.setup = function()
+M.setup = function(_, opts)
 	local lspconfig = require("lspconfig")
-	require("lsp-zero").extend_lspconfig()
+	local mason = require("mason")
+	local mason_lspconfig = require("mason-lspconfig")
+	local cmp = require("blink.cmp")
 
-	require("lsp-zero").on_attach(function(client, bufnr)
-		vim.keymap.set("n", "gd", function()
-			vim.lsp.buf.definition()
-		end, { buffer = bufnr, noremap = true, silent = true, desc = "Go To Definition" })
-		vim.keymap.set("n", "K", function()
-			vim.lsp.buf.hover()
-		end, { buffer = bufnr, noremap = true, silent = true, desc = "Show Hover" })
-		vim.keymap.set("n", "grn", function()
-			vim.lsp.buf.rename()
-		end, { buffer = bufnr, noremap = true, silent = true, desc = "Rename" })
-		vim.keymap.set("n", "<leader>ca", function()
-			vim.lsp.buf.code_action()
-		end, { buffer = bufnr, noremap = true, silent = true, desc = "Code Action" })
-		vim.keymap.set("n", "<C-j>", function()
-			vim.diagnostic.goto_next()
-		end, { buffer = bufnr, noremap = true, silent = true, desc = "Next Diagnostic" })
-		vim.keymap.set("i", "<C-h>", function()
-			vim.lsp.buf.signature_help()
-		end, { buffer = bufnr, noremap = true, silent = true, desc = "Signature Help" })
-	end)
-
-	require("mason-lspconfig").setup({
-		handlers = {
-			require("lsp-zero").default_setup,
-		},
-	})
-
-	require("mason-lspconfig").setup_handlers({
-		function(server_name)
-			local opts = {
-				on_attach = require("plugins.lsp.handlers").on_attach,
-				capabilities = require("plugins.lsp.handlers").capabilities,
-			}
-
-			local require_ok, server = pcall(require, "plugins.lsp.settings." .. server_name)
-			if require_ok then
-				opts = vim.tbl_deep_extend("force", server, opts)
+	-- Keymaps for LSP actions
+	vim.api.nvim_create_autocmd("LspAttach", {
+		desc = "LSP Keymaps",
+		callback = function(event)
+			local function map(mode, keys, func, desc)
+				vim.keymap.set(mode, keys, func, {
+					buffer = event.buf,
+					noremap = true,
+					silent = true,
+					desc = desc .. " (LSP)",
+				})
 			end
 
-			lspconfig[server_name].setup(opts)
+			map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+			map("n", "K", vim.lsp.buf.hover, "Show hover")
+			map("n", "grn", vim.lsp.buf.rename, "Rename")
+			map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
+			map("n", "<C-j>", vim.diagnostic.goto_next, "Next diagnostic")
+			map("i", "<C-h>", vim.lsp.buf.signature_help, "Signature help")
 		end,
+	})
+
+	-- Capabilities
+	local capabilities = vim.tbl_deep_extend("force", {
+		textDocument = {
+			foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			},
+		},
+	}, cmp.get_lsp_capabilities({}, false))
+
+	local servers = {
+		lua_ls = {},
+	}
+
+	mason.setup({})
+	mason_lspconfig.setup({
+		handlers = {
+			function(server_name)
+				local server_opts = servers[server_name] or {}
+				server_opts.capabilities =
+					vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
+				lspconfig[server_name].setup(server_opts)
+			end,
+		},
 	})
 end
 
