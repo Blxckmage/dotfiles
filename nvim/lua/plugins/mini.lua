@@ -1,3 +1,5 @@
+require("util.event").lazy_file()
+
 return {
 	{
 		"echasnovski/mini.pairs",
@@ -17,7 +19,8 @@ return {
 	{
 		"echasnovski/mini.indentscope",
 		version = false,
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+		-- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+		event = "LazyFile",
 		opts = {
 			symbol = "│",
 			options = { try_as_border = true },

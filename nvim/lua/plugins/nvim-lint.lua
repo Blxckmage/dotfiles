@@ -1,6 +1,9 @@
+require("util.event").lazy_file()
+
 return {
 	"mfussenegger/nvim-lint",
-	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+	-- event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+	event = "LazyFile",
 	opts = {
 		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 		linters_by_ft = {

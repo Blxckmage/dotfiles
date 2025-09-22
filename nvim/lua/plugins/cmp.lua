@@ -1,10 +1,7 @@
 return {
 	{
 		"saghen/blink.cmp",
-		event = { "InsertEnter", "CmdlineEnter" },
-		dependencies = {
-			"onsails/lspkind.nvim",
-		},
+		event = "InsertEnter",
 		version = "1.*",
 
 		---@module 'blink.cmp'
@@ -39,6 +36,7 @@ return {
 					"snippet_forward",
 					"fallback",
 				},
+				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<S-Tab>"] = { "snippet_backward", "fallback" },
 			},
 			appearance = {
@@ -57,7 +55,7 @@ return {
 					draw = {
 						columns = {
 							{ "label", "label_description", gap = 1 },
-							{ "kind" },
+							{ "kind", "source_name" },
 						},
 						treesitter = { "lsp" },
 					},
