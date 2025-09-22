@@ -45,9 +45,7 @@ message {
 }
 textbox {
     background-color:            inherit;
-    text-color:                  inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
+    text-color:                  inherit; vertical-align:              0.5; horizontal-align:            0.5;
     placeholder-color:           @foreground;
     blink:                       true;
     markup:                      true;
@@ -84,7 +82,7 @@ element-text {
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
-    vertical-align:              0.5;
+    // vertical-align:           0.5; NOTE: Uncomment this might change the icon to not align correctly
     horizontal-align:            0.5;
 }
 element selected.normal {
