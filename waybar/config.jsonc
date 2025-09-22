@@ -19,11 +19,11 @@
   ],
   "modules-right": [
     "memory",
-    "cpu",
+    // "cpu",
     "temperature",
     // "disk",
     "pulseaudio",
-    "backlight",
+    // "backlight",
     "battery",
     "tray",
     "custom/power-button"
@@ -52,30 +52,53 @@
   },
 
   // CPU module
+  // "cpu": {
+  //   "format": "   {usage}%",
+  //   "tooltip": true,
+  //   "tooltip-format": "CPU Usage: {usage}%",
+  //   "interval": 2
+  // },
   "cpu": {
-    "format": "   {usage}%",
+    "interval": 1,
+    "format": "CPU: [ {icon} ] <span>{usage}%</span>",
     "tooltip": true,
     "tooltip-format": "CPU Usage: {usage}%",
-    "interval": 2
+    "format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "███████░", "████████"]
   },
 
   // Memory module
+  // "memory": {
+  //   "format": "   {used} GiB ({percentage}%)",
+  //   "tooltip": false,
+  //   "interval": 10,
+  //   "on-click-right": "kitty -e btop"
+  // },
+
   "memory": {
-    "format": "   {used} GiB ({percentage}%)",
-    "tooltip": false,
     "interval": 10,
-    "on-click-right": "kitty -e btop"
+    "format": "MEM: [ {icon} ] <span>{percentage}%</span>",
+    "tooltip-format": "MEMORY_TOTAL: {total}GiB\nSWAP_TOTAL: {swapTotal}GiB\n\nMEMORY_USED: {used:0.1f}GiB\nSWAP_USED: {swapUsed:0.1f}GiB",
+    "format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "███████░", "████████"]
   },
 
   // Temperature module
   "temperature": {
-    "tooltip": false,
+    "tooltip": true,
     "thermal-zone": 6,
-    "critical-threshold": 70,
+    "critical-threshold": 100,
     "interval": 2,
-    "format": "   {temperatureC}°C",
-    "format-critical": "   {temperatureC}°C"
+    "format": "TEMP: [ {icon} ] <span>{temperatureC}°C</span>",
+    "format-critical": "<span color='#B7416E'>TEMP: [ {icon} ] {temperatureC}°C</span>",
+    "format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "███████░", "████████"]
   },
+  // "temperature": {
+  //   "tooltip": false,
+  //   "thermal-zone": 6,
+  //   "critical-threshold": 70,
+  //   "interval": 2,
+  //   "format": "   {temperatureC}°C",
+  //   "format-critical": "   {temperatureC}°C"
+  // },
 
   // Backlight module
   "backlight": {
@@ -98,66 +121,103 @@
   },
 
   // PulseAudio module
-  "pulseaudio": {
-    "scroll-step": 1,
-    "format": "{icon} {volume}%",
-    "format-muted": "<span color='#cc241d'>󰝟</span> {volume}%",
-    "format-bluetooth": "<span color='#458588'>󰂰</span> {volume}%",
-    "format-bluetooth-muted": "<span color='#cc241d'>󰂲</span> {volume}%",
-    "format-source": "<span color='#458588'>󰍬</span> {volume}%",
-    "format-source-muted": "<span color='#cc241d'>󰍭</span>",
-    "format-icons": {
-      "headphone": "<span color='#458588'>󰋋</span>",
-      "headset": "<span color='#458588'>󰋎</span>",
-      "phone": "<span color='#458588'>󰏲</span>",
-      "portable": "<span color='#458588'>󰦥</span>",
-      "car": "<span color='#458588'>󰄋</span>",
-      "default": [
-        "<span color='#458588'>󰕿</span>",
-        "<span color='#458588'>󰖀</span>",
-        "<span color='#458588'>󰕾</span>"
-      ]
-    },
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "pavucontrol",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
-    "tooltip": false,
-    "tooltip-format": "{desc} - {volume}%",
-    "max-volume": 130
+    "pulseaudio": {
+      "format": "VOL: [ {icon} ] <span>{volume}%</span>",
+      "tooltip": true,
+      "tooltip-format": "DEVICE: {desc}",
+      "format-muted": "VOL: <span color='#B7416E'>[ MUTED ] <span>{volume}%</span></span>",
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "on-click-right": "pavucontrol",
+      "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+      "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+      "scroll-step": 2,
+      "reverse-scrolling": true,
+      "format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "███████░", "████████"]
   },
+  // "pulseaudio": {
+  //   "scroll-step": 1,
+  //   "format": "{icon} {volume}%",
+  //   "format-muted": "<span color='#cc241d'>󰝟</span> {volume}%",
+  //   "format-bluetooth": "<span color='#458588'>󰂰</span> {volume}%",
+  //   "format-bluetooth-muted": "<span color='#cc241d'>󰂲</span> {volume}%",
+  //   "format-source": "<span color='#458588'>󰍬</span> {volume}%",
+  //   "format-source-muted": "<span color='#cc241d'>󰍭</span>",
+  //   "format-icons": {
+  //     "headphone": "<span color='#458588'>󰋋</span>",
+  //     "headset": "<span color='#458588'>󰋎</span>",
+  //     "phone": "<span color='#458588'>󰏲</span>",
+  //     "portable": "<span color='#458588'>󰦥</span>",
+  //     "car": "<span color='#458588'>󰄋</span>",
+  //     "default": [
+  //       "<span color='#458588'>󰕿</span>",
+  //       "<span color='#458588'>󰖀</span>",
+  //       "<span color='#458588'>󰕾</span>"
+  //     ]
+  //   },
+  //   "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+  //   "on-click-right": "pavucontrol",
+  //   "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+  //   "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+  //   "tooltip": false,
+  //   "tooltip-format": "{desc} - {volume}%",
+  //   "max-volume": 130
+  // },
 
   // Battery module
-  "battery": {
-    "interval": 10,
+  // "battery": {
+  //   "interval": 10,
+  //   "states": {
+  //     "good": 99,
+  //     "warning": 30,
+  //     "critical": 20
+  //   },
+  //   "format-icons": [
+  //     "󰂎",
+  //     "󰁺",
+  //     "󰁻",
+  //     "󰁽",
+  //     "󰁾",
+  //     "󰁿",
+  //     "󰂀",
+  //     "󰂁",
+  //     "󰂂",
+  //     "󰁹"
+  //   ],
+  //   "format": "<span color='#98971a'> {icon} </span> {capacity}%",
+  //   "format-critical": "<span color='#cc241d'> {icon} </span> {capacity}%!!",
+  //   "format-warning": "<span color='#d79921'> {icon} </span> {capacity}%",
+  //   "format-full": "<span color='#98971a'> {icon} </span> {capacity}%",
+  //   "format-charging": "<span color='#98971a'> 󰂅 </span> {capacity}%",
+  //   "format-charging-warning": "<span color='#d79921'> 󰢝 </span> {capacity}%",
+  //   "format-charging-critical": "<span color='#cc241d'> 󰢜 </span> {capacity}%",
+  //   "format-plugged": "<span color='#98971a'> 󰂅 </span> {capacity}%",
+  //   "format-alt": "<span color='#98971a'> 󱧥 </span> {time}",
+  //   "tooltip": false
+  // },
+   "battery": {
     "states": {
-      "good": 99,
-      "warning": 30,
-      "critical": 20
+      "warning": 20,
+      "critical": 15
     },
+    "format": "BAT: [ {icon} ] <span>{capacity}%</span>",
+    "interval": 5,
+    "format-charging": "BAT: [ {icon} ] <span>CHRG</span>",
+    "format-plugged": "BAT: [ {icon} ] <span>PLUG</span>",
+    "tooltip-format": "CAPACITY: {capacity}%\nBATTERY: {power}W\nSTATUS: {timeTo}\nCYCLES: {cycles}\nHEALTH: {health}",
     "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ],
-    "format": "<span color='#98971a'> {icon} </span> {capacity}%",
-    "format-critical": "<span color='#cc241d'> {icon} </span> {capacity}%!!",
-    "format-warning": "<span color='#d79921'> {icon} </span> {capacity}%",
-    "format-full": "<span color='#98971a'> {icon} </span> {capacity}%",
-    "format-charging": "<span color='#98971a'> 󰂅 </span> {capacity}%",
-    "format-charging-warning": "<span color='#d79921'> 󰢝 </span> {capacity}%",
-    "format-charging-critical": "<span color='#cc241d'> 󰢜 </span> {capacity}%",
-    "format-plugged": "<span color='#98971a'> 󰂅 </span> {capacity}%",
-    "format-alt": "<span color='#98971a'> 󱧥 </span> {time}",
-    "tooltip": false
-  },
+      "█░░░░░░░",  // 0–10%   
+      "██░░░░░░",  // 11–20% 
+      "███░░░░░",  // 21–30%
+      "████░░░░",  // 31–40%
+      "█████░░░",  // 41–50%
+      "██████░░",  // 51–60%
+      "███████░",  // 61–70%
+      "████████",  // 71–80%
+      "████████",  // 81–90%
+      "████████"   // 91–100%
+    ]
+    },
+
   "clock": {
    "format": "<span color='#689d6a'>  </span> {:%a %d %b %H:%M:%S}",
    "format-alt": "<span color='#689d6a'>  </span> {:%Y-%m-%d}",
@@ -179,9 +239,9 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/ScrollMPRIS -s 50 -b firefox,vlc,mpv --scroll wrapping -w 50",
     "escape": true,
-    "on-click": "playerctl play-pause",
-    "on-click-right": "playerctl next",
-    "on-click-middle": "playerctl previous",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-click-right": "playerctl --player=spotify next",  
+    "on-click-middle": "playerctl --player=spotify previous", 
     "tooltip": true,
   }
 
