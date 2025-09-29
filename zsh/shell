@@ -1,0 +1,22 @@
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=$HISTSIZE
+
+# sane defaults
+setopt inc_append_history share_history hist_ignore_all_dups
+setopt autocd no_beep interactivecomments
+unsetopt nomatch
+
+# Set complete path
+export PATH="./bin:$HOME/.local/bin:$PATH"
+set +h
+
+# completion
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+bindkey -e
+
+# stars
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+export STARSHIP_CACHE=~/.starship/cache

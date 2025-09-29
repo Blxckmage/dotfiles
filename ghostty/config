@@ -1,13 +1,21 @@
-font-family = {{ terminal_font }}
-font-size = 12
-scrollback-limit = 10_000
-window-theme = ghostty
-theme = catppuccin-mocha
-clipboard-read = allow
-clipboard-paste-protection = false
-window-decoration = false
-shell-integration = zsh
+# Dynamic theme colors
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
-background-opacity = 1
-window-padding-x = 10
-window-padding-y = 11
+# Font
+font-family = "CaskaydiaMono Nerd Font"
+font-style = Regular
+font-size = 9
+
+# Window
+window-padding-x = 14
+window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
+
+# Cursor stlying
+cursor-style = "block"
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Keyboard bindings
+keybind = f11=toggle_fullscreen
