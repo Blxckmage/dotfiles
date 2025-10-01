@@ -7,22 +7,19 @@
 
 ## 🌸 Description
 
-- **Distro**: [Linux Mint](https://linuxmint.com/)
-- **Bar**: [Polybar](https://github.com/polybar/polybar)
+- **Distro**: [Omarchy (Arch)](https://omarchy.org/)
+- **Bar**: [Waybar](https://github.com/Alexays/Waybar)
 - **Shell**: [Zsh](https://www.zsh.org/)
-- **Terminal**: [Alacritty](https://alacritty.org)
-- **Compositor**: [Picom (FT-Labs)](https://github.com/FT-Labs/picom)
+- **Terminal**: [Kitty](https://sw.kovidgoyal.net/kitty/)
+- **Compositor**: [Hyprland](https://hypr.land)
 - **Editor**: [Neovim](https://neovim.io/)
-- **File Manager**: [Ranger](https://github.com/ranger/ranger)
-- **Application Launcher**: [Rofi](https://github.com/davatorium/rofi)
-- **Notification Daemon**: [Dunst](https://dunst-project.org/)
+- **Prompt**: [Starship](https://starship.rs)
+- **File Manager**: [Nautilus](https://apps.gnome.org/Nautilus/)
+- **Application Launcher**: [Walker](https://github.com/abenz1267/walker)
+- **Notification Daemon**: [Mako](https://github.com/emersion/mako)
 - **Terminal Multiplexer**: [tmux](https://github.com/tmux/tmux/wiki) & [Zellij](https://zellij.dev/)
-- **Font**: [FiraMono Nerd Font](https://www.nerdfonts.com/font-downloads)
+- **Font**: [FiraMono Nerd Font & CaskaydiaMono Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 ## 📷 Showcase
 
-![picture 1](https://github.com/Blxckmage/dotfiles/blob/main/.assets/picture-1.png)
-
-![picture 2](https://github.com/Blxckmage/dotfiles/blob/main/.assets/picture-2.png)
-
-![picture 3](https://github.com/Blxckmage/dotfiles/blob/main/.assets/picture-3.png)
+![showcase](https://github.com/Blxckmage/dotfiles/blob/main/.assets/showcase.png)
