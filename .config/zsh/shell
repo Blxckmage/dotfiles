@@ -1,4 +1,4 @@
-# history
+#history
 HISTFILE=~/.zsh_history
 HISTSIZE=50000
 SAVEHIST=$HISTSIZE
@@ -16,7 +16,3 @@ set +h
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 bindkey -e
-
-# stars
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-export STARSHIP_CACHE=~/.starship/cache
