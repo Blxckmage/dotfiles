@@ -1,92 +1,160 @@
-return {
-	{
-		"folke/tokyonight.nvim",
-		lazy = true,
-		event = "User ColorSchemeLoad",
-		priority = 1000,
-		opts = {
-			style = "night",
-			transparent = true,
-			terminal_colors = true,
-		},
-	},
-	{
+--NOTE: https://github.com/basecamp/omarchy/issues/1803#issuecomment-3336901391
+
+-- Loads the Omarchy theme file but filters out LazyVim references
+local theme_file = vim.fn.expand("~/.config/omarchy/current/theme/neovim.lua")
+local colorscheme_to_load = nil
+
+-- Read the Omarchy theme file to extract colorscheme
+if vim.fn.filereadable(theme_file) == 1 then
+	local ok, theme_plugins = pcall(dofile, theme_file)
+	if ok and type(theme_plugins) == "table" then
+		for _, plugin in ipairs(theme_plugins) do
+			if
+				type(plugin) == "table"
+				and plugin[1] == "LazyVim/LazyVim"
+				and plugin.opts
+				and plugin.opts.colorscheme
+			then
+				colorscheme_to_load = plugin.opts.colorscheme
+				break
+			end
+		end
+	end
+end
+
+-- Map Omarchy colorscheme names to actual plugins
+local theme_specs = {
+	catppuccin = {
 		"catppuccin/nvim",
-		lazy = true,
 		name = "catppuccin",
-		event = "User ColorSchemeLoad",
+		lazy = false,
 		priority = 1000,
-		opts = {
-			flavour = "mocha",
-			term_colors = true,
-			styles = {
-				keywords = { "italic" },
-				variables = { "italic" },
-				booleans = { "italic" },
-				properties = { "italic" },
-			},
-			integrations = {
-				cmp = true,
-				nvimtree = true,
-				telescope = {
-					enabled = true,
-				},
-				treesitter_context = false,
-				treesitter = true,
-				dashboard = true,
-				mini = {
-					enabled = true,
-					indentscope_color = "lavender",
-				},
-				native_lsp = {
-					enabled = true,
-					virtual_text = {
-						errors = { "italic" },
-						hints = { "italic" },
-						warnings = { "italic" },
-						information = { "italic" },
-					},
-					underlines = {
-						errors = { "undercurl" },
-						hints = { "undercurl" },
-						warnings = { "undercurl" },
-						information = { "undercurl" },
-					},
-					inlay_hints = {
-						background = true,
-					},
-				},
-			},
-		},
+		config = function()
+			require("catppuccin").setup({})
+			vim.cmd.colorscheme("catppuccin")
+		end,
 	},
-	{
-		"rose-pine/neovim",
-		lazy = true,
-		name = "rose-pine",
-		event = "User ColorSchemeLoad",
+	["catppuccin-latte"] = {
+		"catppuccin/nvim",
+		name = "catppuccin",
+		lazy = false,
 		priority = 1000,
-		opts = {
-			variant = "auto",
-			dark_variant = "main",
-		},
+		config = function()
+			require("catppuccin").setup({
+				flavour = "latte",
+			})
+			vim.cmd.colorscheme("catppuccin-latte")
+		end,
 	},
-	{
+	tokyonight = {
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("tokyonight")
+		end,
+	},
+	gruvbox = {
 		"ellisonleao/gruvbox.nvim",
+		lazy = false,
 		priority = 1000,
-		config = true,
-		opts = {
-			undercurl = true,
-			underline = true,
-			bold = true,
-			italic = {
-				strings = false,
-				comments = false,
-				operators = false,
-				folds = false,
-			},
-			inverse = true,
-			contrast = "hard",
-			transparent_mode = true,
-		},
+		config = function()
+			vim.cmd.colorscheme("gruvbox")
+		end,
+	},
+	kanagawa = {
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("kanagawa")
+		end,
+	},
+	["rose-pine"] = {
+		"rose-pine/neovim",
+		name = "rose-pine",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("rose-pine")
+		end,
+	},
+	["rose-pine-dawn"] = {
+		"rose-pine/neovim",
+		name = "rose-pine",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("rose-pine-dawn")
+		end,
+	},
+	everforest = {
+		"neanias/everforest-nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("everforest").setup({
+				background = "soft",
+			})
+			vim.cmd.colorscheme("everforest")
+		end,
+	},
+	nord = {
+		"shaunsingh/nord.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("nord")
+		end,
+	},
+	bamboo = {
+		"ribru17/bamboo.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("bamboo").setup({})
+			require("bamboo").load()
+		end,
+	},
+	matteblack = {
+		"tahayvr/matteblack.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("matteblack")
+		end,
+	},
+	["monokai-pro"] = {
+		"gthelding/monokai-pro.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("monokai-pro").setup({
+				filter = "ristretto",
+				override = function()
+					return {
+						NonText = { fg = "#948a8b" },
+						MiniIconsGrey = { fg = "#948a8b" },
+						MiniIconsRed = { fg = "#fd6883" },
+						MiniIconsBlue = { fg = "#85dacc" },
+						MiniIconsGreen = { fg = "#adda78" },
+						MiniIconsYellow = { fg = "#f9cc6c" },
+						MiniIconsOrange = { fg = "#f38d70" },
+						MiniIconsPurple = { fg = "#a8a9eb" },
+						MiniIconsAzure = { fg = "#a8a9eb" },
+						MiniIconsCyan = { fg = "#85dacc" },
+					}
+				end,
+			})
+			vim.cmd.colorscheme("monokai-pro")
+		end,
 	},
 }
+
+-- Return the appropriate theme spec based on what Omarchy selected
+if colorscheme_to_load and theme_specs[colorscheme_to_load] then
+	return theme_specs[colorscheme_to_load]
+else
+	-- Fallback to bamboo theme for osaka-jade (which doesn't use LazyVim wrapper)
+	return theme_specs["bamboo"]
+end

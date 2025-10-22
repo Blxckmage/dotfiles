@@ -2,16 +2,16 @@ require("util.event").lazy_file()
 
 return {
 	"mfussenegger/nvim-lint",
-	-- event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-	event = "LazyFile",
+	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+	-- event = "LazyFile",
 	opts = {
 		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 		linters_by_ft = {
 			lua = { "stylua" },
 			javascript = { "eslint" },
 			typescript = { "eslint" },
-			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
+			javascriptreact = { "eslint" },
+			typescriptreact = { "eslint" },
 			svelte = { "eslint_d" },
 			python = { "flake8" },
 			c = { "clangtidy" },

@@ -60,4 +60,23 @@ return {
 			{ "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put Before Applying a Filter (Yanky)" },
 		},
 	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		ft = "markdown",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		keys = {
+			{
+				"<leader>cp",
+				"<cmd>MarkdownPreviewToggle<cr>",
+				desc = "Markdown Preview",
+			},
+		},
+		config = function()
+			vim.cmd([[do FileType]])
+		end,
+	},
 }

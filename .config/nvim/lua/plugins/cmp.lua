@@ -45,21 +45,21 @@ return {
 			signature = {
 				enabled = true,
 			},
+
 			completion = {
 				documentation = {
 					auto_show = true,
-					auto_show_delay_ms = 500,
-					window = { border = "rounded" },
+					auto_show_delay_ms = 250,
+					treesitter_highlighting = true,
 				},
 				menu = {
 					draw = {
 						columns = {
 							{ "label", "label_description", gap = 1 },
-							{ "kind", "source_name" },
+							{ "kind" },
 						},
 						treesitter = { "lsp" },
 					},
-					border = "rounded",
 				},
 				list = {
 					selection = {
@@ -76,6 +76,31 @@ return {
 			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
+				providers = {
+					cmdline = {
+						min_keyword_length = function(ctx)
+							if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then
+								return 3
+							end
+							return 0
+						end,
+					},
+				},
+			},
+			cmdline = {
+				keymap = {
+					preset = "inherit",
+				},
+				completion = {
+					menu = {
+						auto_show = function(ctx)
+							return vim.fn.getcmdtype() == ":"
+						end,
+					},
+					ghost_text = {
+						enabled = false,
+					},
+				},
 			},
 		},
 	},

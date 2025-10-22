@@ -28,31 +28,34 @@ M.setup = function(_, opts)
 		end,
 	})
 
-	-- Capabilities
-	local capabilities = vim.tbl_deep_extend("force", {
+	local capabilities = {
 		textDocument = {
 			foldingRange = {
 				dynamicRegistration = false,
 				lineFoldingOnly = true,
 			},
 		},
-	}, cmp.get_lsp_capabilities({}, false))
+	}
+
+	capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 	local servers = {
 		lua_ls = {},
+		html = {
+			filetypes = { "html", "twig", "hbs" },
+		},
+		cssls = {},
+		ts_ls = {},
+		biome = {},
+		tailwindcss = {},
 	}
 
-	mason.setup({})
-	mason_lspconfig.setup({
-		handlers = {
-			function(server_name)
-				local server_opts = servers[server_name] or {}
-				server_opts.capabilities =
-					vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
-				lspconfig[server_name].setup(server_opts)
-			end,
-		},
-	})
+	for server, server_opts in pairs(servers) do
+		server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
+
+		vim.lsp.config(server, server_opts)
+		vim.lsp.enable(server)
+	end
 end
 
 return M

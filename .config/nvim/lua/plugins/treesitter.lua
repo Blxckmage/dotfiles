@@ -5,7 +5,8 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
 		-- event = { "BufReadPost", "BufNewFile" },
-		event = { "LazyFile", "VeryLazy" },
+		-- event = { "LazyFile", "VeryLazy" },
+		event = { "BufReadPre" },
 		lazy = vim.fn.argc(-1) == 0,
 		cmd = {
 			"TSInstall",
