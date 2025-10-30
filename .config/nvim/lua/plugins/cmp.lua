@@ -3,6 +3,9 @@ return {
 		"saghen/blink.cmp",
 		event = "InsertEnter",
 		version = "1.*",
+		dependencies = {
+			{ "nvim-mini/mini.icons", version = false },
+		},
 
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
@@ -55,9 +58,20 @@ return {
 				menu = {
 					draw = {
 						columns = {
-							{ "label", "label_description", gap = 1 },
-							{ "kind" },
+							-- { "label", "label_description", gap = 1 },
+							-- { "kind" },
+							{ "label", "label_description" },
+							{ "kind_icon", "kind", gap = 1 },
+							{ "source_name" },
 						},
+						components = {
+							source_name = {
+								text = function(ctx)
+									return "[" .. ctx.source_name .. "]"
+								end,
+							},
+						},
+
 						treesitter = { "lsp" },
 					},
 				},
