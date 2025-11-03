@@ -40,17 +40,33 @@ M.setup = function(_, opts)
 	capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 	local servers = {
-		lua_ls = {},
-		html = {
-			filetypes = { "html", "twig", "hbs" },
-		},
-		cssls = {},
-		ts_ls = {},
-		biome = {},
-		tailwindcss = {},
+		"lua_ls",
+		"html",
+		"cssls",
+		"ts_ls",
+		"biome",
+		"tailwindcss",
 	}
 
-	for server, server_opts in pairs(servers) do
+	-- Automatically discover servers from servers/ directory
+	local servers_path = vim.fn.stdpath("config") .. "/lua/plugins/lsp/servers"
+	local server_files = vim.fn.glob(servers_path .. "/*.lua", false, true)
+
+	for _, file in ipairs(server_files) do
+		local server_name = vim.fn.fnamemodify(file, ":t:r")
+		if not vim.tbl_contains(servers, server_name) then
+			table.insert(servers, server_name)
+		end
+	end
+
+	for _, server in ipairs(servers) do
+		local server_opts = {}
+
+		local ok, config = pcall(require, "plugins.lsp.servers." .. server)
+		if ok then
+			server_opts = config
+		end
+
 		server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
 
 		vim.lsp.config(server, server_opts)
