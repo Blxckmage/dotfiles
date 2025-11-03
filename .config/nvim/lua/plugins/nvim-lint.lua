@@ -14,7 +14,6 @@ return {
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
 			python = { "flake8" },
-			c = { "clangtidy" },
 		},
 		linters = {},
 	},
