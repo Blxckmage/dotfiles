@@ -9,3 +9,6 @@ source ~/.config/zsh/envs
 # source ~/.local/share/omarchy/default/bash/aliases
 source ~/.local/share/omarchy/default/bash/functions
 source ~/.local/share/omarchy/default/bash/envs
+
+
+. "$HOME/.local/share/../bin/env"
