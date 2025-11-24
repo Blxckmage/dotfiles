@@ -45,13 +45,4 @@ fi
 
 if [ -d "$HOME/.opencode/bin" ]; then
   export PATH="$HOME/.opencode/bin:$PATH" 
-fi 
-
-
-if [ -f "$HOME/.cargo/env" ]; then
-  source "$HOME/.cargo/env"
-fi     
-
-if [ -s "$HOME/.bun/_bun" ]; then
-  source "$HOME/.bun/_bun"
 fi
