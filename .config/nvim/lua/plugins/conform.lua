@@ -42,6 +42,7 @@ return {
 			lua = { "stylua" },
 			python = { "black" },
 			c = { "clang_format" },
+			php = { "php-cs-fixer" },
 		},
 		formatters = {
 			black = {

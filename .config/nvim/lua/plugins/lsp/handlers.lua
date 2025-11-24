@@ -46,6 +46,7 @@ M.setup = function(_, opts)
 		"ts_ls",
 		"biome",
 		"tailwindcss",
+		"intelephense",
 	}
 
 	-- Automatically discover servers from servers/ directory
