@@ -12,3 +12,6 @@ source ~/.local/share/omarchy/default/bash/envs
 
 
 . "$HOME/.local/share/../bin/env"
+
+# bun completions
+[ -s "/home/blackmage/.bun/_bun" ] && source "/home/blackmage/.bun/_bun"
