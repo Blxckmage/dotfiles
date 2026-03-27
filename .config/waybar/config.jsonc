@@ -8,6 +8,7 @@
   "modules-center": ["clock", "custom/update", "custom/voxtype", "custom/screenrecording-indicator"],
   "modules-right": [
     "group/tray-expander",
+    "custom/keyboard-toggle",
     "bluetooth",
     "network",
     "pulseaudio",
@@ -129,6 +130,13 @@
   "custom/expand-icon": {
     "format": " ",
     "tooltip": false
+  },
+  "custom/keyboard-toggle": {
+    "exec": "$HOME/.config/omarchy/scripts/keyboard-status.sh",
+    "on-click": "$HOME/.config/omarchy/scripts/toggle-keyboard.sh",
+    "return-type": "json",
+    "signal": 9,
+    "interval": 30
   },
   "custom/screenrecording-indicator": {
     "on-click": "omarchy-cmd-screenrecord",

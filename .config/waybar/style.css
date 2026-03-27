@@ -91,3 +91,12 @@ tooltip {
 #custom-voxtype.recording {
   color: #a55555;
 }
+
+#custom-keyboard-toggle {
+  min-width: 12px;
+  margin-right: 17px;
+}
+
+#custom-keyboard-toggle.disabled {
+  opacity: 0.6;
+}
