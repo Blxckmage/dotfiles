@@ -37,6 +37,8 @@ alias gs='echo ""; echo "*********************************************"; echo -e
 
 # Misc
 alias c="clear"
+alias o="opencode"
+alias d="lazydocker"
 alias cdp="pwd | wl-copy" # Copy dir path
 cfp() {
     readlink -f "$1" | wl-copy
@@ -54,6 +56,7 @@ function y() {
 }
 
 # Nautilus to current directory
-function n() {
-  (nautilus "$PWD" &> /dev/null &)
+function n() { 
+  local dir="${1:-$PWD}"
+  (nautilus "$dir" &> /dev/null &)
 }
