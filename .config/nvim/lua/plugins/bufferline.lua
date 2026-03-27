@@ -13,14 +13,14 @@ return {
 			right_mouse_command = function(n)
 				require("mini.bufremove").delete(n, false)
 			end,
-			offsets = {
-				{
-					filetype = "neo-tree",
-					text = "Neo-tree",
-					highlight = "Directory",
-					text_align = "left",
-				},
+		offsets = {
+			{
+				filetype = "snacks_explorer",
+				text = "Explorer",
+				highlight = "Directory",
+				text_align = "left",
 			},
+		},
 			diagnostics = "nvim_lsp",
 			diagnostics_indicator = function(count, level, diagnostics_dict, context)
 				local icon = level:match("error") and " " or " "

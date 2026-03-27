@@ -346,9 +346,9 @@ return {
 				evaluate_single = true,
 				header = logo,
 				items = {
-					{ name = "Find File", action = ":Telescope find_files", section = "Telescope" },
-					{ name = "Grep Text", action = ":Telescope live_grep", section = "Telescope" },
-					{ name = "Recent Files", action = ":Telescope oldfiles", section = "Telescope" },
+					{ name = "Find File", action = ":lua Snacks.picker.files()", section = "Snacks" },
+					{ name = "Grep Text", action = ":lua Snacks.picker.grep()", section = "Snacks" },
+					{ name = "Recent Files", action = ":lua Snacks.picker.recent()", section = "Snacks" },
 					starter.sections.recent_files(5, false),
 					{ name = "Lazy", action = ":Lazy", section = "Lazy" },
 					{ name = "New File", action = ":ene | startinsert", section = "Built-in" },
@@ -356,7 +356,7 @@ return {
 				},
 				content_hooks = {
 					starter.gen_hook.adding_bullet("░ "),
-					starter.gen_hook.indexing("all", { "Telescope", "Recent files", "Lazy", "Built-in" }),
+					starter.gen_hook.indexing("all", { "Snacks", "Recent files", "Lazy", "Built-in" }),
 					starter.gen_hook.aligning("center", "center"),
 					starter.gen_hook.padding(0, 1),
 				},

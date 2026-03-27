@@ -19,8 +19,8 @@ M.setup = function(_, opts)
 				})
 			end
 
-			map("n", "gd", vim.lsp.buf.definition, "Go to definition")
-			map("n", "K", vim.lsp.buf.hover, "Show hover")
+		-- gd handled globally by snacks.picker.lsp_definitions()
+		map("n", "K", vim.lsp.buf.hover, "Show hover")
 			map("n", "grn", vim.lsp.buf.rename, "Rename")
 			map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
 			map("n", "<C-j>", vim.diagnostic.goto_next, "Next diagnostic")

@@ -19,19 +19,29 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		if event.match:match("^%w%w+://") then
 			return
 		end
-		local file = vim.loop.fs_realpath(event.match) or event.match
+		local file = vim.uv.fs_realpath(event.match) or event.match
 		vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
 	end,
 })
 
--- Hijack netrw wit Neo-tree
-vim.api.nvim_create_autocmd("BufEnter", {
-	group = vim.api.nvim_create_augroup("NeoTreeInit", { clear = true }),
-	callback = function()
-		local f = vim.fn.expand("%:p")
-		if vim.fn.isdirectory(f) ~= 0 then
-			vim.cmd("Neotree current dir=" .. f)
-			vim.api.nvim_clear_autocmds({ group = "NeoTreeInit" })
-		end
-	end,
+-- Hijack netrw wit Snacks explorer
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	group = vim.api.nvim_create_augroup("SnacksExplorerInit", { clear = true }),
+-- 	callback = function()
+-- 		local f = vim.fn.expand("%:p")
+-- 		if vim.fn.isdirectory(f) ~= 0 then
+-- 			vim.cmd("silent lua Snacks.explorer({ cwd = vim.fn.fnamemodify(f, ':p:h') })")
+-- 			vim.api.nvim_clear_autocmds({ group = "SnacksExplorerInit" })
+-- 		end
+-- 	end,
+-- })
+
+-- Transparent NormalFloat background
+local function set_normal_float_highlight()
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = set_normal_float_highlight,
 })

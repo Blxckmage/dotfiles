@@ -4,7 +4,7 @@ return {
 		python = {
 			analysis = {
 				typeCheckingMode = "standard",
-				diagnosticMode = "workspace",
+				diagnosticMode = "openFilesOnly",
 				useLibraryCodeForTypes = true,
 				autoSearchPaths = true,
 				autoImportCompletions = true,

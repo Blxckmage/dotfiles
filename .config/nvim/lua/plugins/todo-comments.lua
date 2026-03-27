@@ -1,7 +1,23 @@
 return {
 	"folke/todo-comments.nvim",
 	event = { "BufReadPost", "BufNewFile" },
-	cmd = { "TodoLocList", "TodoTelescope", "TodoQuickFix", "TodoTrouble" },
+	cmd = { "TodoLocList", "TodoQuickFix", "TodoTrouble" },
+	keys = {
+		{
+			"<leader>st",
+			function()
+				Snacks.picker.todo_comments()
+			end,
+			desc = "Todo",
+		},
+		{
+			"<leader>sT",
+			function()
+				Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+			end,
+			desc = "Todo/Fix/Fixme",
+		},
+	},
 	opts = {
 		signs = true,
 		sign_priority = 8,

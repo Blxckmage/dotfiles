@@ -39,6 +39,7 @@ return {
 				"python",
 				"c",
 				"yaml",
+				"regex",
 			},
 		},
 		config = function(_, opts)
