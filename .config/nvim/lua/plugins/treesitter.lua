@@ -3,10 +3,9 @@ require("util.event").lazy_file()
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
 		version = false,
-		-- event = { "BufReadPost", "BufNewFile" },
-		-- event = { "LazyFile", "VeryLazy" },
-		event = { "BufReadPre" },
+		event = { "LazyFile", "VeryLazy" },
 		lazy = vim.fn.argc(-1) == 0,
 		cmd = {
 			"TSInstall",
@@ -32,7 +31,6 @@ return {
 				"html",
 				"css",
 				"lua",
-				"json",
 				"rust",
 				"markdown",
 				"markdown_inline",
@@ -43,7 +41,12 @@ return {
 			},
 		},
 		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
+			local TS = require("nvim-treesitter")
+			if not TS.get_installed then
+				vim.notify("nvim-treesitter failed to load properly", vim.log.levels.ERROR)
+				return
+			end
+			TS.setup(opts)
 		end,
 	},
 	{
