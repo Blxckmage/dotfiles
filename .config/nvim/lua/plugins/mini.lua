@@ -323,51 +323,51 @@ return {
 			},
 		},
 	},
-	{
-		"echasnovski/mini.starter",
-		version = false,
-		lazy = true,
-		event = "VimEnter",
-		opts = function()
-			local logo = [[
-     ▄▄▄▄    ██▓    ▄▄▄       ▄████▄   ██ ▄█▀ ███▄ ▄███▓ ▄▄▄        ▄████ ▓█████
-    ▓█████▄ ▓██▒   ▒████▄    ▒██▀ ▀█   ██▄█▒ ▓██▒▀█▀ ██▒▒████▄     ██▒ ▀█▒▓█   ▀
-    ▒██▒ ▄██▒██░   ▒██  ▀█▄  ▒▓█    ▄ ▓███▄░ ▓██    ▓██░▒██  ▀█▄  ▒██░▄▄▄░▒███
-    ▒██░█▀  ▒██░   ░██▄▄▄▄██ ▒▓▓▄ ▄██▒▓██ █▄ ▒██    ▒██ ░██▄▄▄▄██ ░▓█  ██▓▒▓█  ▄
-    ░▓█  ▀█▓░██████▒▓█   ▓██▒▒ ▓███▀ ░▒██▒ █▄▒██▒   ░██▒ ▓█   ▓██▒░▒▓███▀▒░▒████▒
-    ░▒▓███▀▒░ ▒░▓  ░▒▒   ▓▒█░░ ░▒ ▒  ░▒ ▒▒ ▓▒░ ▒░   ░  ░ ▒▒   ▓▒█░ ░▒   ▒ ░░ ▒░ ░
-    ▒░▒   ░ ░ ░ ▒  ░ ▒   ▒▒ ░  ░  ▒   ░ ░▒ ▒░░  ░      ░  ▒   ▒▒ ░  ░   ░  ░ ░  ░
-     ░    ░   ░ ░    ░   ▒   ░        ░ ░░ ░ ░      ░     ░   ▒   ░ ░   ░    ░
-     ░          ░  ░     ░  ░░ ░      ░  ░          ░         ░  ░      ░    ░  ░
-          ░                  ░
-    ]]
-			local starter = require("mini.starter")
-			local config = {
-				evaluate_single = true,
-				header = logo,
-				items = {
-					{ name = "Find File", action = ":lua Snacks.picker.files()", section = "Snacks" },
-					{ name = "Grep Text", action = ":lua Snacks.picker.grep()", section = "Snacks" },
-					{ name = "Recent Files", action = ":lua Snacks.picker.recent()", section = "Snacks" },
-					starter.sections.recent_files(5, false),
-					{ name = "Lazy", action = ":Lazy", section = "Lazy" },
-					{ name = "New File", action = ":ene | startinsert", section = "Built-in" },
-					{ name = "Quit", action = ":qa", section = "Built-in" },
-				},
-				content_hooks = {
-					starter.gen_hook.adding_bullet("░ "),
-					starter.gen_hook.indexing("all", { "Snacks", "Recent files", "Lazy", "Built-in" }),
-					starter.gen_hook.aligning("center", "center"),
-					starter.gen_hook.padding(0, 1),
-				},
-				query_updaters = [[abcdefghijklmnopqrstuvwxyz0123456789_-.]],
-				footer = "",
-			}
-			return config
-		end,
-		config = function(_, config)
-			local starter = require("mini.starter")
-			starter.setup(config)
-		end,
-	},
+	-- {
+	-- 	"echasnovski/mini.starter",
+	-- 	version = false,
+	-- 	lazy = true,
+	-- 	event = "VimEnter",
+	-- 	opts = function()
+	-- 		local logo = [[
+	--       ▄▄▄▄    ██▓    ▄▄▄       ▄████▄   ██ ▄█▀ ███▄ ▄███▓ ▄▄▄        ▄████ ▓█████
+	--      ▓█████▄ ▓██▒   ▒████▄    ▒██▀ ▀█   ██▄█▒ ▓██▒▀█▀ ██▒▒████▄     ██▒ ▀█▒▓█   ▀
+	--      ▒██▒ ▄██▒██░   ▒██  ▀█▄  ▒▓█    ▄ ▓███▄░ ▓██    ▓██░▒██  ▀█▄  ▒██░▄▄▄░▒███
+	--      ▒██░█▀  ▒██░   ░██▄▄▄▄██ ▒▓▓▄ ▄██▒▓██ █▄ ▒██    ▒██ ░██▄▄▄▄██ ░▓█  ██▓▒▓█  ▄
+	--      ░▓█  ▀█▓░██████▒▓█   ▓██▒▒ ▓███▀ ░▒██▒ █▄▒██▒   ░██▒ ▓█   ▓██▒░▒▓███▀▒░▒████▒
+	--      ░▒▓███▀▒░ ▒░▓  ░▒▒   ▓▒█░░ ░▒ ▒  ░▒ ▒▒ ▓▒░ ▒░   ░  ░ ▒▒   ▓▒█░ ░▒   ▒ ░░ ▒░ ░
+	--      ▒░▒   ░ ░ ░ ▒  ░ ▒   ▒▒ ░  ░  ▒   ░ ░▒ ▒░░  ░      ░  ▒   ▒▒ ░  ░   ░  ░ ░  ░
+	--       ░    ░   ░ ░    ░   ▒   ░        ░ ░░ ░ ░      ░     ░   ▒   ░ ░   ░    ░
+	--       ░          ░  ░     ░  ░░ ░      ░  ░          ░         ░  ░      ░    ░  ░
+	--            ░                  ░
+	--      ]]
+	-- 		local starter = require("mini.starter")
+	-- 		local config = {
+	-- 			evaluate_single = true,
+	-- 			header = logo,
+	-- 			items = {
+	-- 				{ name = "Find File", action = ":lua Snacks.picker.files()", section = "Snacks" },
+	-- 				{ name = "Grep Text", action = ":lua Snacks.picker.grep()", section = "Snacks" },
+	-- 				{ name = "Recent Files", action = ":lua Snacks.picker.recent()", section = "Snacks" },
+	-- 				starter.sections.recent_files(5, false),
+	-- 				{ name = "Lazy", action = ":Lazy", section = "Lazy" },
+	-- 				{ name = "New File", action = ":ene | startinsert", section = "Built-in" },
+	-- 				{ name = "Quit", action = ":qa", section = "Built-in" },
+	-- 			},
+	-- 			content_hooks = {
+	-- 				starter.gen_hook.adding_bullet("░ "),
+	-- 				starter.gen_hook.indexing("all", { "Snacks", "Recent files", "Lazy", "Built-in" }),
+	-- 				starter.gen_hook.aligning("center", "center"),
+	-- 				starter.gen_hook.padding(0, 1),
+	-- 			},
+	-- 			query_updaters = [[abcdefghijklmnopqrstuvwxyz0123456789_-.]],
+	-- 			footer = "",
+	-- 		}
+	-- 		return config
+	-- 	end,
+	-- 	config = function(_, config)
+	-- 		local starter = require("mini.starter")
+	-- 		starter.setup(config)
+	-- 	end,
+	-- },
 }

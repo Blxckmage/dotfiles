@@ -63,20 +63,6 @@ return {
 			desc = "Fuzzy search in current buffer (Snacks)",
 		},
 		{
-			"s/",
-			function()
-				Snacks.picker.grep({ layout = "ivy" })
-			end,
-			desc = "Find String (Snacks)",
-		},
-		{
-			"sd",
-			function()
-				Snacks.picker.files({ hidden = true, layout = "telescope" })
-			end,
-			desc = "Find Files (Snacks)",
-		},
-		{
 			"sr",
 			function()
 				Snacks.picker.recent({ layout = "dropdown" })

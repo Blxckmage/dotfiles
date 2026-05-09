@@ -16,14 +16,14 @@ return {
 			function()
 				require("fff").find_files()
 			end,
-			desc = "FFFind files",
+			desc = "Find Files (fff)",
 		},
 		{
 			"fg",
 			function()
 				require("fff").live_grep()
 			end,
-			desc = "LiFFFe grep",
+			desc = "Live Grep (fff)",
 		},
 		{
 			"fz",
@@ -34,14 +34,14 @@ return {
 					},
 				})
 			end,
-			desc = "Live fffuzy grep",
+			desc = "Fuzzy Search (fff)",
 		},
 		{
 			"fc",
 			function()
 				require("fff").live_grep({ query = vim.fn.expand("<cword>") })
 			end,
-			desc = "Search current word",
+			desc = "Search Current Word (fff)",
 		},
 	},
 }
