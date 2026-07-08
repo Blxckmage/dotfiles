@@ -1,7 +1,11 @@
 export PATH="/usr/bin:/usr/local/bin:$PATH"
 
 if command -v mise &> /dev/null; then
-  eval "$(mise activate zsh)"
+  mise() {
+    unfunction mise
+    eval "$(command mise activate zsh)"
+    mise "$@"
+  }
 fi
 
 if command -v starship &> /dev/null; then

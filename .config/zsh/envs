@@ -12,3 +12,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # spicetify  
 export PATH=$PATH:/home/blackmage/.spicetify
+
+# cargo
+. "$HOME/.cargo/env"

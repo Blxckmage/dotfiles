@@ -12,7 +12,12 @@ unsetopt nomatch
 export PATH="./bin:$HOME/.local/bin:$PATH"
 set +h
 
-# completion
-autoload -Uz compinit && compinit
+# completion (cached - only regenerate if dump is >24h old)
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 zstyle ':completion:*' menu select
 bindkey -e
