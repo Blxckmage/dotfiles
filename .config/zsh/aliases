@@ -1,19 +1,30 @@
 # File system
-alias ls="eza -l --group-directories-first --icons"
-alias lsa='ls -a'
-alias lt='eza --tree --level=2 --long --icons --git'
-alias lta='lt -a'
+if command -v eza &> /dev/null; then
+  alias ls='eza -lh --group-directories-first --icons=auto'
+  alias lsa='ls -a'
+  alias lt='eza --tree --level=2 --long --icons --git'
+  alias lta='lt -a'
+fi
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias lg="lazygit"
-zd() {
-  if [ $# -eq 0 ]; then
-    builtin cd ~ && return
-  elif [ -d "$1" ]; then
-    builtin cd "$1"
-  else
-    z "$@" && printf "\U000F17A9 " && pwd || echo "Error: Directory not found"
-  fi
-}
+if command -v zoxide &> /dev/null; then
+  alias cd="zd"
+  zd() {
+    if (( $# == 0 )); then
+      builtin cd ~ || return
+    elif [[ -d $1 ]]; then
+      builtin cd "$1" || return
+    else
+      if ! z "$@"; then
+        echo "Error: Directory not found"
+        return 1
+      fi
+
+      printf "\U000F17A9 "
+      pwd
+    fi
+  }
+fi
 
 # Directories
 alias ..='cd ..'
@@ -31,7 +42,7 @@ alias zel="zellij"
 
 # Git aliases
 alias gi='git init'
-alias ga='git add'
+# alias ga='git add'
 alias gss='git status -s'
 alias gs='echo ""; echo "*********************************************"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "*********************************************"; echo ""; git status'
 
@@ -55,8 +66,13 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# Nautilus to current directory
+# Thunar to current directory
 function n() { 
   local dir="${1:-$PWD}"
-  (nautilus "$dir" &> /dev/null &)
+  (nautilus "$dir" &> /dev/null &) # Fix
 }
+
+# Open files with xdg-open in the background 
+open() (
+  xdg-open "$@" >/dev/null 2>&1 &
+)

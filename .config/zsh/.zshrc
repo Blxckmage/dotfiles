@@ -15,3 +15,7 @@ source ~/.local/share/omarchy/default/bash/envs
 
 # bun completions
 [ -s "/home/blackmage/.bun/_bun" ] && source "/home/blackmage/.bun/_bun"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
