@@ -19,11 +19,13 @@ M.setup = function(_, opts)
 				})
 			end
 
-		-- gd handled globally by snacks.picker.lsp_definitions()
-		map("n", "K", vim.lsp.buf.hover, "Show hover")
+			-- gd handled globally by snacks.picker.lsp_definitions()
+			map("n", "K", vim.lsp.buf.hover, "Show hover")
 			map("n", "grn", vim.lsp.buf.rename, "Rename")
 			map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
-			map("n", "<C-j>", vim.diagnostic.goto_next, "Next diagnostic")
+			map("n", "<C-j>", function()
+				vim.diagnostic.jump({ count = 1, float = true })
+			end, "Next diagnostic")
 			map("i", "<C-h>", vim.lsp.buf.signature_help, "Signature help")
 		end,
 	})

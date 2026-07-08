@@ -60,4 +60,32 @@ return {
 		version = "1.*",
 		opts = {},
 	},
+	{
+		"nvim-orgmode/orgmode",
+		event = "BufReadPre",
+		ft = { "org" },
+		keys = {
+			{ "<leader>oa", "<cmd>Org agenda<cr>", desc = "Agenda (Orgmode)" },
+			{ "<leader>oc", "<cmd>Org capture<cr>", desc = "Capture (Orgmode)" },
+		},
+		init = function()
+			vim.keymap.set("n", "<leader>oa", "<cmd>Org agenda<cr>", { desc = "Agenda (Orgmode)" })
+			vim.keymap.set("n", "<leader>oc", "<cmd>Org capture<cr>", { desc = "Capture (Orgmode)" })
+		end,
+		config = function()
+			require("orgmode").setup({
+				org_agenda_files = "~/notes/org/*.org",
+				org_default_notes_file = "~/notes/org/inbox.org",
+			})
+
+			vim.lsp.enable("org")
+		end,
+	},
+	{
+		"akinsho/org-bullets.nvim",
+		ft = "org",
+		config = function()
+			require("org-bullets").setup()
+		end,
+	},
 }
