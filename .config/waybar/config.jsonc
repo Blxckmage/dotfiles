@@ -64,7 +64,7 @@
     "format": "{:L%A %H:%M}",
     "format-alt": "{:%Y-%m-%d}",
     "tooltip": false,
-    "on-click-right": "betterbird -calendar"
+    "on-click-right": "thunderbird -calendar"
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],

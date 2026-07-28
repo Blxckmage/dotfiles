@@ -31,15 +31,22 @@ if command -v atuin &> /dev/null; then
   bindkey "^R" atuin-search
 fi
 
-if [ -d /usr/share/zsh/plugins/zsh-autosuggestions ]; then
-  # plugins (from system packages)
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+ZSH_REPO_HOME=/usr/share/zsh/plugins
+typeset -A plugins
+plugins=(
+  aloxaf/fzf-tab                                 fzf-tab
+  zsh-users/zsh-autosuggestions                  zsh-autosuggestions
+  zdharma-continuum/fast-syntax-highlighting     fast-syntax-highlighting
+  MichaelAquilina/zsh-you-should-use             you-should-use
+)
 
-if [ -d /usr/share/zsh/plugins/zsh-syntax-highlighting ]; then
-  # starship must init before syntax-highlighting
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+for repo plugin in ${(kv)plugins}; do
+  dir=$ZSH_REPO_HOME/$repo
+  if ! [[ -d $dir ]]; then
+    git clone https://github.com/$repo $dir
+  fi
+  source $dir/$plugin.plugin.zsh
+done
 
 if [ -d "$HOME/.local/share/pnpm" ]; then
   export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -57,3 +64,9 @@ if [ -d "$HOME/.config/herd-lite/bin" ]; then
   export PATH="/home/blackmage/.config/herd-lite/bin:$PATH"
   export PHP_INI_SCAN_DIR="/home/blackmage/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 fi 
+
+if [ -d "$HOME/.config/nvm" ]; then
+  export NVM_DIR="$HOME/.config/nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+fi

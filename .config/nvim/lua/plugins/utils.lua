@@ -8,14 +8,14 @@ return {
 			highlight = { timer = 150 },
 		},
 		keys = {
-		{
-			"<leader>p",
-			function()
-				Snacks.picker.yanky()
-			end,
-			mode = { "n", "x" },
-			desc = "Open Yank History (Yanky)",
-		},
+			{
+				"<leader>p",
+				function()
+					Snacks.picker.yanky()
+				end,
+				mode = { "n", "x" },
+				desc = "Open Yank History (Yanky)",
+			},
 			{ "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank Text (Yanky)" },
 			{ "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put Text After Cursor (Yanky)" },
 			{ "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put Text Before Cursor (Yanky)" },
