@@ -46,7 +46,6 @@ M.setup = function(_, opts)
 		"html",
 		"cssls",
 		"ts_ls",
-		"biome",
 		"tailwindcss",
 		"intelephense",
 	}

@@ -2,7 +2,7 @@ require("util.event").lazy_file()
 
 return {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 	dependencies = {
 		{ "williamboman/mason.nvim", cmd = "Mason", build = ":MasonUpdate", config = true },
 		{ "williamboman/mason-lspconfig.nvim" },

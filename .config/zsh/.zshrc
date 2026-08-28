@@ -7,15 +7,11 @@ source ~/.config/zsh/envs
 
 # source from Omarchy
 # source ~/.local/share/omarchy/default/bash/aliases
-source ~/.local/share/omarchy/default/bash/functions
-source ~/.local/share/omarchy/default/bash/envs
+[ -f ~/.local/share/omarchy/default/bash/functions ] && source ~/.local/share/omarchy/default/bash/functions
+[ -f ~/.local/share/omarchy/default/bash/envs ] && source ~/.local/share/omarchy/default/bash/envs
 
 
-. "$HOME/.local/share/../bin/env"
+[ -f "$HOME/.local/share/../bin/env" ] && . "$HOME/.local/share/../bin/env"
 
 # bun completions
 [ -s "/home/blackmage/.bun/_bun" ] && source "/home/blackmage/.bun/_bun"
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

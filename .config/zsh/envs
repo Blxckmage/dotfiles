@@ -13,5 +13,20 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # spicetify  
 export PATH=$PATH:/home/blackmage/.spicetify
 
+export GPG_TTY="$(tty)"
+
 # cargo
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  lazy_nvm() {
+    unalias nvm node npm npx pnpm yarn 2>/dev/null
+    . "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+    "$@"
+  }
+  for cmd in nvm node npm npx pnpm yarn; do
+    alias "$cmd"="lazy_nvm $cmd"
+  done
+fi

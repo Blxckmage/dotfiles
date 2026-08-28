@@ -9,12 +9,14 @@ setopt autocd no_beep interactivecomments
 unsetopt nomatch
 
 # Set complete path
-export PATH="./bin:$HOME/.local/bin:$PATH"
+export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/bob/nvim-bin:$PATH"
 set +h
 
 # completion (cached - only regenerate if dump is >24h old)
 autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+local -a _stale_dump
+_stale_dump=( ~/.zcompdump(Nmh+24) )
+if (( ${#_stale_dump} )); then
   compinit
 else
   compinit -C

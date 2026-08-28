@@ -8,11 +8,11 @@ return {
 		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 		linters_by_ft = {
 			lua = { "luacheck" },
-			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
-			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
-			svelte = { "eslint_d" },
+			javascript = { "eslint" },
+			typescript = { "eslint" },
+			javascriptreact = { "eslint" },
+			typescriptreact = { "eslint" },
+			svelte = { "eslint" },
 			python = { "flake8" },
 		},
 		linters = {},
@@ -21,12 +21,9 @@ return {
 		local lint = require("lint")
 		lint.linters_by_ft = opts.linters_by_ft
 
-		-- Wrap eslint_d to ignore "No ESLint configuration found" errors
-		lint.linters.eslint_d = require("lint.util").wrap(lint.linters.eslint_d, function(diagnostic)
-			-- try to ignore "No ESLint configuration found" error
-			-- if diagnostic.message:find("Error: No ESLint configuration found") then -- old version
-			-- update: 20240814, following is working
-			if diagnostic.message:find("Error: Could not find config file") then
+		-- Wrap eslint to ignore "No ESLint configuration found" errors
+		lint.linters.eslint = require("lint.util").wrap(lint.linters.eslint, function(diagnostic)
+			if diagnostic.message:find("Error: Could not find config file") or diagnostic.message:find("No ESLint configuration found") then
 				return nil
 			end
 			return diagnostic

@@ -1,8 +1,10 @@
 return {
 	"dmtrKovalenko/fff.nvim",
+	-- ponytail: download prebuilt (fast, no 268 derivations) + guard $HOME sigsegv
 	build = function()
 		require("fff.download").download_or_build_binary()
 	end,
+	cond = function() return vim.fn.getcwd() ~= vim.fn.expand("~") and vim.fn.getcwd() ~= "/" end,
 	opts = {
 		debug = {
 			enabled = true,

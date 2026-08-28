@@ -65,6 +65,25 @@ for k, v in pairs(globals) do
 	vim.g[k] = v
 end
 
+--- NVM node for LSP/formatters on WSL
+if vim.env.HOME and vim.fn.executable("node") ~= 1 then
+	local node_bins = vim.fn.glob(vim.env.HOME .. "/.nvm/versions/node/*/bin", false, true)
+	if #node_bins > 0 then
+		table.sort(node_bins)
+		vim.env.PATH = node_bins[#node_bins] .. ":" .. (vim.env.PATH or "")
+	end
+end
+
+--- WSL clipboard via win32yank
+if vim.fn.executable("win32yank.exe") == 1 then
+	vim.g.clipboard = {
+		name = "win32yank",
+		copy = { ["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf" },
+		paste = { ["+"] = "win32yank.exe -o --lf", ["*"] = "win32yank.exe -o --lf" },
+		cache_enabled = 0,
+	}
+end
+
 --- Disable providers
 for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
 	vim.g["loaded_" .. provider .. "_provider"] = 0
